@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" style="width: 100%; max-width: 100vw; overflow-x: hidden;">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,9 +12,9 @@
         <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet" />
 
         <!-- Styles / Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.jsx'])
+        @vite(['resources/css/app.scss', 'resources/js/app.jsx'])
     </head>
-    <body class="bg-white dark:bg-gray-900 min-h-screen">
-        <div id="app"></div>
+    <body class="bg-white dark:bg-gray-900 min-h-screen" style="width: 100%; max-width: 100vw; margin: 0; padding: 0; overflow-x: hidden;">
+        <div id="app" style="width: 100%; max-width: 100vw; overflow-x: hidden;"></div>
     </body>
 </html>
