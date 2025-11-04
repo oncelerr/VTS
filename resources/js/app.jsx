@@ -3,6 +3,7 @@ import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './Pages/Homepage/Home';
+import Services from './Pages/Services/Services';
 import Navbar from './Pages/Navbar/Navbar';
 import Footer from './Pages/Footer/Footer';
 
@@ -15,8 +16,7 @@ if (container) {
             <Navbar />
             <Routes>
                 <Route path="/" element={<Home />} />
-                {/* Add more routes here as needed */}
-                {/* Example: <Route path="/about" element={<About />} /> */}
+                <Route path="/services" element={<Services />} />
             </Routes>
             <Footer />
         </BrowserRouter>
