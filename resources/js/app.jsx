@@ -8,6 +8,8 @@ import Navbar from './Pages/Navbar/Navbar';
 import Footer from './Pages/Footer/Footer';
 import Talent from './Pages/Talent/Talent';
 import Teams from './Pages/Teams/Teams';
+import Roles from './Pages/Roles/Roles';    
+import Approach from './Pages/Approach/Approach';
 
 // Mount React app with routing
 const container = document.getElementById('app');
@@ -21,6 +23,8 @@ if (container) {
                 <Route path="/services" element={<Services />} />
                 <Route path="/talent" element={<Talent />} />
                 <Route path="/teams" element={<Teams />} />
+                <Route path="/approach" element={<Approach />} />
+                <Route path="/roles" element={<Roles />} />
             </Routes>
             <Footer />
         </BrowserRouter>

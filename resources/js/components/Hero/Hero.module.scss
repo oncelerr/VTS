@@ -1,0 +1,311 @@
+.servicesWrp {
+    padding-top: 80px;
+    position: relative;
+    width: 100vw;
+    max-width: 100vw;
+}
+
+.heroWrp {
+    padding-top: 98px;
+    padding-bottom: 98px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    height: 588px; /* Ensure minimum height for content */
+}
+
+.backgroundElement {
+    position: absolute;
+    top: -100px;
+    left: 0;
+    width: 499px;
+    height: 100%;
+    z-index: -1;
+
+    img {
+        width: 100%;
+        height: auto;
+        min-height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+}
+
+.backgroundElement2 {
+    position: absolute;
+    top: -100px;
+    right: 0;
+    width: 499px;
+    height: 100%;
+    z-index: -1;
+    
+    img {
+        width: 100%;
+        height: auto;
+        min-height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+}
+
+.heroContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 741px;
+    text-align: center;
+    gap: 24px;
+    position: relative;
+    z-index: 1;
+}
+
+.servicesContentWrp {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+    padding-top: 80px;
+    padding-bottom: 145px;
+    position: relative;
+    gap: 133px;
+    min-height: 100vh; /* Ensure there's enough height for absolute positioning */
+    overflow-y: hidden;
+}
+
+.backgroundElement3 {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+
+    img {
+        max-width: 600px;
+    }
+}
+
+.backgroundElement4 {
+    position: absolute;
+    bottom: 0; /* Position at the bottom */
+    left: 0; /* Full width from left edge */
+    right: 0; /* Full width to right edge */
+    width: 100%; /* Full width of parent */
+    z-index: 0;
+    pointer-events: none; /* Allows clicking through the element */
+    text-align: center; /* Center the image */
+}
+
+@media (min-width: 1441px) {
+    .backgroundElement4 {
+        bottom: -300px;
+    }
+}
+
+.fullWidthImage {
+    display: block; /* Ensures the image is properly positioned */
+    width: 100vw; /* Full viewport width */
+    max-width: none; /* Override any max-width constraints */
+    margin-left: calc(-50vw + 50%); /* Offset to center from any container */
+    object-fit: contain; /* Maintain aspect ratio */
+    position: relative; /* Enable positioning */
+}
+
+.talent {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 147px;
+    z-index: 2;
+}
+
+.talentLeft {
+    display: flex;
+    flex-direction: column;
+    width: 578px;
+    gap: 24px;
+}
+
+.talentRight {
+    position: relative;
+    width: 500px;
+    height: 500px;
+    margin-left: 40px;
+}
+
+.talentRightimg {
+    object-fit: cover;
+    position: absolute;
+    border: 6px solid white;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.talentRightimg:first-child {
+    width: 380px;
+    height: 380px;
+    top: -65px;
+    left: 0;
+    z-index: 1;
+}
+
+.talentRightimg:last-child {
+    width: 365px;
+    height: 365px;
+    top: 200px;
+    left: 120px;
+    z-index: 2;
+}
+
+.talentRight:hover .talentRightimg:first-child {
+    transform: rotate(-7deg) translateY(-5px);
+}
+
+.talentRight:hover .talentRightimg:last-child {
+    transform: rotate(5deg) translateY(-8px);
+}
+
+.teams {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 147px;
+    z-index: 2;
+}
+
+.teamsLeft {
+    display: flex;
+    flex-direction: column;
+    width: 578px;
+    gap: 24px;
+}
+
+.teamsRight {
+    position: relative;
+    width: 500px;
+    height: 500px;
+    margin-left: 40px;
+}
+
+.teamsRightimg {
+    object-fit: cover;
+    position: absolute;
+    border: 6px solid white;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.teamsRightimg:first-child {
+    width: 380px;
+    height: 380px;
+    top: -65px;
+    left: 0;
+    z-index: 1;
+}
+
+.teamsRightimg:last-child {
+    width: 365px;
+    height: 365px;
+    top: 200px;
+    left: 120px;
+    z-index: 2;
+}
+
+.teamsRight:hover .teamsRightimg:first-child {
+    transform: rotate(-7deg) translateY(-5px);
+}
+
+.teamsRight:hover .teamsRightimg:last-child {
+    transform: rotate(5deg) translateY(-8px);
+}
+
+// Table styles
+.tableSection {
+    width: 100%;
+    padding: 0 93px;
+    max-width: 1440px;
+    z-index: 2;
+}
+
+.tableTitle {
+    font-size: 32px;
+    color: #181818;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.tableWrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.comparisonTable {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    font-size: 14px;
+    
+    th, td {
+        padding: 48px;
+        text-align: left;
+        vertical-align: middle;
+        
+        &:last-child {
+            border-right: none;
+        }
+    }
+    
+    thead {
+        background-color: #111B4D;
+        color: white;
+        
+        th {
+            font-weight: 600;
+            padding: 32px 48px;
+            
+            &:first-child {
+                width: 180px;
+            }
+        }
+    }
+    
+    tbody {
+        tr {
+            height: 70px;
+            
+            &:nth-child(odd) {
+                background-color: #0B1233;
+                color: white;
+            }
+            
+            &:nth-child(even) {
+                background-color: #111B4D;
+                color: white;
+            }
+            
+            td {
+                padding: 32px 48px;
+            }
+        }
+    }
+    
+    .firstColumn, .rowTitle {
+        font-weight: 600;
+        color: white;
+        width: 180px;
+    }
+    
+    // Ensure the table is responsive
+    @media (max-width: 1024px) {
+        font-size: 13px;
+        
+        th, td {
+            padding: 12px 10px;
+        }
+        
+        .firstColumn, .rowTitle {
+            width: 150px;
+        }
+    }
+}

@@ -149,7 +149,10 @@ const Navbar = () => {
               </div>
             )}
           </div>
-          <div className={styles.dropdown}>
+          <div onClick={(e) => {
+            e.stopPropagation();
+            navigate('/roles');
+          }} className={styles.dropdown}>
             <p>Roles</p>
           </div>
           <div 
@@ -170,7 +173,10 @@ const Navbar = () => {
               }, 100);
             }}
           >
-            <p>Our Approach <img className={(activeDropdown === 'approach' || hoveredDropdown === 'approach') ? styles.rotated : ''} src="/Assets/downChevron.svg" alt="" /></p>
+            <p onClick={(e) => {
+              e.stopPropagation();
+              navigate('/approach');
+            }}>Our Approach <img className={(activeDropdown === 'approach' || hoveredDropdown === 'approach') ? styles.rotated : ''} src="/Assets/downChevron.svg" alt="" /></p>
             {(activeDropdown === 'approach' || hoveredDropdown === 'approach') && (
               <div 
                 className={styles.dropdownMenu}

@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Services.module.scss';
-import HollowBadge from '../../components/HollowBadge/HollowBadge';
 import SolidBtn from '../../components/SolidButton/SolidBTN';
+import Hero from '../../components/Hero/Hero';
 
 const HeroData = {
   badge: 'Our Services',
@@ -128,34 +128,7 @@ const TableData = {
   ]
 }
 
-const Hero = () => {
-  return (
-    <>
-      <div className={styles.heroWrp}>
-        <div className={styles.backgroundElement}>
-          <img
-            src="/Assets/Rectangle 9529.png"
-            alt="Background"
-            loading="eager"
-          />
-        </div>
-        <div className={styles.backgroundElement2}>
-          <img
-            src="/Assets/Rectangle 9530.png"
-            alt="Background"
-            loading="eager"
-          />
-        </div>
-        <div className={styles.heroContent}>
-          <HollowBadge name={HeroData.badge} color="#E9ECEF" />
-          <h1>{HeroData.title} <span style={{ fontWeight: '300', fontStyle: 'italic' }}>{HeroData.italicTitle}</span></h1>
-          <p>{HeroData.content}</p>
-          <SolidBtn style={{ marginTop: '24px' }} name={HeroData.button} color="#1C2D80" />
-        </div>
-      </div>
-    </>
-  );
-}
+ 
 
 const ServicesContent = () => {
   return (
@@ -258,7 +231,7 @@ const Services = () => {
   return (
     <>
       <div className={styles.servicesWrp}>
-        <Hero />
+        <Hero HeroData={HeroData} />
         <ServicesContent />
       </div>
     </>
