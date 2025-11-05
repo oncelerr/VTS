@@ -25,15 +25,15 @@ const Footer = () => {
           <div className={styles.FooterRightContacts}>
             <p style={{ marginBottom: '16px' }}>Reach Out to Us</p>
             <div className={styles.FooterRightContactsEach}>
-              <img src="/Assets/phone.svg" alt="" />
+              <img style={{ width: 'auto', height: '23px' }} src="/Assets/phone.svg" alt="" />
               <p> +63 912 345 6789 | PH</p>
             </div>
             <div className={styles.FooterRightContactsEach}>
-              <img src="/Assets/location-dot.svg" alt="" />
+              <img style={{ width: 'auto', height: '23px' }} src="/Assets/location-dot.svg" alt="" />
               <p> 11 Brixton Street Kapitolyo, City of Pasig, Second District, National Capital Region (NCR), 1603</p>
             </div>
             <div className={styles.FooterRightContactsEach}>
-              <img src="/Assets/envelope.svg" alt="" />
+              <img style={{ width: '16px', height: '23px' }} src="/Assets/envelope.svg" alt="" />
               <p> info@vts.com</p>
             </div>
           </div>
