@@ -48,6 +48,14 @@
             align-items: center;
             gap: 5px;
             
+            span {
+                cursor: pointer;
+                
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+            
             img {
                 width: 12px;
                 height: 12px;
@@ -88,15 +96,22 @@
 .dropdownItem {
     padding: 10px 16px;
     transition: all 0.2s ease;
+    cursor: pointer;
     
     &:hover {
         transform: translateX(5px);
+        background-color: rgba(255, 255, 255, 0.1);
     }
     
     p {
         color: #fff !important;
         font-size: 14px;
         font-weight: 400;
+        cursor: pointer;
+        
+        &:hover {
+            text-decoration: underline;
+        }
     }
 }
 

@@ -6,6 +6,7 @@ import Home from './Pages/Homepage/Home';
 import Services from './Pages/Services/Services';
 import Navbar from './Pages/Navbar/Navbar';
 import Footer from './Pages/Footer/Footer';
+import Talent from './Pages/Talent/Talent';
 
 // Mount React app with routing
 const container = document.getElementById('app');
@@ -17,6 +18,7 @@ if (container) {
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/services" element={<Services />} />
+                <Route path="/talent" element={<Talent />} />
             </Routes>
             <Footer />
         </BrowserRouter>

@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './Services.module.scss';
+import styles from './Talent.module.scss';
 import HollowBadge from '../../components/HollowBadge/HollowBadge';
 import SolidBtn from '../../components/SolidButton/SolidBTN';
 

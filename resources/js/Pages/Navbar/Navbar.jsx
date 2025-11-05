@@ -93,7 +93,6 @@ const Navbar = () => {
           </div>
           <div 
             className={styles.dropdown} 
-            onClick={() => navigate('/services')}
             onMouseEnter={() => {
               // Clear any existing timeout
               if (hoverTimeoutRef.current) {
@@ -110,7 +109,12 @@ const Navbar = () => {
               }, 100);
             }}
           >
-            <p>Services <img className={(activeDropdown === 'services' || hoveredDropdown === 'services') ? styles.rotated : ''} src="/Assets/downChevron.svg" alt="" /></p>
+            <p>
+              <span onClick={(e) => {
+                e.stopPropagation();
+                navigate('/services');
+              }}>Services</span> <img className={(activeDropdown === 'services' || hoveredDropdown === 'services') ? styles.rotated : ''} src="/Assets/downChevron.svg" alt="" />
+            </p>
             {(activeDropdown === 'services' || hoveredDropdown === 'services') && (
               <div 
                 className={styles.dropdownMenu}
@@ -130,11 +134,17 @@ const Navbar = () => {
                   }, 100);
                 }}
               >
-                <div className={styles.dropdownItem}>
-                  <p>Talent</p>
+                <div className={styles.dropdownItem}> 
+                  <p onClick={(e) => {
+                    e.stopPropagation();
+                    navigate('/talent');
+                  }}>Talent</p>
                 </div>
                 <div className={styles.dropdownItem}>
-                  <p>Teams</p>
+                  <p onClick={(e) => {
+                    e.stopPropagation();
+                    navigate('/teams');
+                  }}>Teams</p>
                 </div>
               </div>
             )}

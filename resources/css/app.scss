@@ -46,7 +46,9 @@
   box-sizing: border-box;
 }
 
-html, body, #app {
+html,
+body,
+#app {
   width: 100%;
   max-width: 100vw;
 }
@@ -128,4 +130,27 @@ h6 {
   font-weight: 700;
   line-height: normal;
   letter-spacing: -0.48px;
+}
+
+th {
+  color: var(--Neutral-100, #F8F9FA);
+
+  /* Body/Large/Medium */
+  font-family: "Helvetica Neue";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+td {
+  color: var(--Neutral-100, #F8F9FA);
+
+  /* Body/Large/Regular */
+  font-family: "Helvetica Neue";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.36px;
 }
