@@ -3,6 +3,7 @@ import styles from './Teams.module.scss';
 import HollowBadge from '../../components/HollowBadge/HollowBadge';
 import SolidBtn from '../../components/SolidButton/SolidBTN';
 import HollowBtn from '../../components/HollowButton/HollowBTN';
+import CTA from '../../components/CTA/CTA';
 
 const HeroData = {
   badge: 'Teams',
@@ -85,22 +86,7 @@ const TalentContent = () => {
   );
 }
 
-const CTA = () => {
-  return (
-    <>
-      <div className={styles.ctaWrp}>
-        <div className={styles.ctaContent}>
-          <h3 style={{color:'white', fontSize: '36px !important'}}>{ctaData.title}</h3>
-          <p>{ctaData.content}</p>
-          <div style={{display: 'flex', gap: '16px'}}>
-            <SolidBtn name={ctaData.btnText} />
-            <HollowBtn name={ctaData.hollowBTN} color={'#fff'} />
-          </div>
-        </div>
-      </div>
-    </>
-  );
-}
+// CTA component has been moved to a separate reusable component
 
 const Teams = () => {
   return (
@@ -108,7 +94,7 @@ const Teams = () => {
       <div className={styles.talentWrp}>
         <Hero />
         <TalentContent />
-        <CTA />
+        <CTA data={{...ctaData, fontSize: '36px !important'}} />
       </div>
     </>
   );

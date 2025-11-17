@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './Talent.module.scss';
 import HollowBadge from '../../components/HollowBadge/HollowBadge';
 import SolidBtn from '../../components/SolidButton/SolidBTN';
+import CTA from '../../components/CTA/CTA';
 
 const HeroData = {
   badge: 'Talent',
@@ -92,19 +93,7 @@ const TalentContent = () => {
   );
 }
 
-const CTA = () => {
-  return (
-    <>
-      <div className={styles.ctaWrp}>
-        <div className={styles.ctaContent}>
-          <h3 style={{color:'white', fontSize: '48px !important'}}>{ctaData.title}</h3>
-          <p>{ctaData.content}</p>
-          <SolidBtn name={ctaData.btnText} />
-        </div>
-      </div>
-    </>
-  );
-}
+// CTA component has been moved to a separate reusable component
 
 const Talent = () => {
   return (
@@ -112,7 +101,7 @@ const Talent = () => {
       <div className={styles.talentWrp}>
         <Hero />
         <TalentContent />
-        <CTA />
+        <CTA data={ctaData} />
       </div>
     </>
   );

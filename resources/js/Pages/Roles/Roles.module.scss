@@ -1,4 +1,4 @@
-.talentWrp {
+.rolesWrp {
     padding-top: 80px;
     position: relative;
     width: 100vw;
@@ -54,7 +54,7 @@
 .talentContentWrp {
     width: 100%;
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 91.5px 0;
@@ -66,8 +66,8 @@
     justify-content: center;
     gap: 123px;
     width: 100%;
-}   
-    
+}
+
 .sectionContent {
     width: 619px;
     display: flex;
@@ -101,4 +101,157 @@
     align-items: center;
     height: 100%;
     margin: auto 0;
+}
+
+.rolesSect {
+    display: flex;
+    flex-direction: column;
+    gap: 124px;
+    background-color: #fff;
+    width: 100%;
+    padding: 95px 0;
+}
+
+.rolesSectTop {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    gap: 108px;
+}
+
+.rolesSectTopLeft {
+    display: flex;
+    flex-direction: column;
+    width: 313px;
+    gap: 24px;
+}
+
+.rolesSectTopRight {
+    display: flex;
+    flex-direction: column;
+    width: 851px;
+    gap: 16px;
+    cursor: pointer;
+}
+
+.rolesDropDown {
+    display: flex;
+    flex-direction: column;
+    background: #E9ECEF;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.dropdownContent {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.dropdownContentActive {
+    max-height: 500px;
+}
+
+.rolesSectBottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.rolesSectBottomContent {
+    display: flex;
+    gap: 16px;
+}
+
+// Table styles
+.tableSection {
+    width: 100%;
+    padding: 0 93px;
+    max-width: 1440px;
+    z-index: 2;
+}
+
+.tableTitle {
+    font-size: 32px;
+    color: #181818;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.tableWrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.comparisonTable {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    font-size: 14px;
+    
+    th, td {
+        padding: 48px;
+        text-align: left;
+        vertical-align: middle;
+        
+        &:last-child {
+            border-right: none;
+        }
+    }
+    
+    thead {
+        background-color: #111B4D;
+        color: white;
+        
+        th {
+            font-weight: 600;
+            padding: 32px 48px;
+            
+            &:first-child {
+                width: 180px;
+            }
+        }
+    }
+    
+    tbody {
+        tr {
+            height: 70px;
+            
+            &:nth-child(odd) {
+                background-color: #0B1233;
+                color: white;
+            }
+            
+            &:nth-child(even) {
+                background-color: #111B4D;
+                color: white;
+            }
+            
+            td {
+                padding: 32px 48px;
+            }
+        }
+    }
+    
+    .firstColumn, .rowTitle {
+        font-weight: 600;
+        color: white;
+        width: 180px;
+    }
+    
+    // Ensure the table is responsive
+    @media (max-width: 1024px) {
+        font-size: 13px;
+        
+        th, td {
+            padding: 12px 10px;
+        }
+        
+        .firstColumn, .rowTitle {
+            width: 150px;
+        }
+    }
 }

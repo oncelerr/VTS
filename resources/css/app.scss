@@ -109,6 +109,30 @@ p {
   letter-spacing: 0.36px;
 }
 
+ul {
+  color: var(--Neutral-100, #181818);
+
+  /* Body/Large/Regular */
+  font-family: "Helvetica Neue";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.36px;
+}
+
+li {
+  color: var(--Neutral-100, #181818);
+
+  /* Body/Large/Regular */
+  font-family: "Helvetica Neue";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.36px;
+}
+
 h5 {
   color: var(--Neutral-900, #181818);
 
@@ -118,6 +142,19 @@ h5 {
   font-style: normal;
   font-weight: 700;
   line-height: normal;
+}
+
+h4 {
+  color: var(--Neutral-900, #181818);
+  text-align: center;
+
+  /* Heading/H4 */
+  font-family: "Helvetica Neue";
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -0.72px;
 }
 
 h6 {
@@ -153,4 +190,8 @@ td {
   font-weight: 400;
   line-height: normal;
   letter-spacing: 0.36px;
+}
+
+button {
+  all: unset;
 }

@@ -1,0 +1,170 @@
+.caseWrp {
+    display: flex;
+    flex-direction: column;
+    padding-top: 80px;
+    position: relative;
+    width: 100vw;
+    max-width: 100vw;
+    align-items: center;
+}
+
+.backgroundElement {
+    position: absolute;
+    top: -80px;
+    left: 0;
+    z-index: 0;
+
+    img {
+        max-width: 600px;
+        opacity: 0.8;
+    }
+}
+
+.caseContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    background-color: white;
+    padding: 137px 0;
+}
+
+.caseCarousel {
+    background-color: #0B1233;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 124px 0;
+    width: 1186px;
+    gap: 63px;
+}
+
+.caseCarouselHeader {
+    display: flex;
+    flex-direction: column;
+    gap: 27px;
+}
+
+.caseCarouselWrp {
+    width: 1186px;
+    display: flex;
+    justify-content: center;
+    height: fit-content;
+    gap: 35px;
+    
+    button {
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 8px;
+        border-radius: 50%;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+        &:active {
+            transform: scale(0.95);
+        }
+        
+        img {
+            transition: all 0.2s ease;
+        }
+    }
+}
+
+.carousel {
+    display: flex;
+    flex-direction: column;
+    width: 1032px;
+    background-color: #fff;
+    border-top-left-radius: 100px;
+    border-top-right-radius: 16px;
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 100px;
+    padding: 48px 51px;
+    gap: 32px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.carouselHeader {
+    display: flex;
+    gap: 24px;
+    transition: all 0.3s ease-in-out;
+}
+
+.carouselContent {
+    transition: all 0.3s ease-in-out;
+}
+
+// Slide animation classes
+.slideIn {
+    opacity: 1;
+    transform: translateX(0);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.slideOut {
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.caseCarouselDots {
+    position: relative;
+    width: 1032px;
+}
+
+.dtsWrp {
+    display: flex;
+    justify-content: space-between;
+    z-index: 2;
+}
+
+.dts {
+    width: 35px;
+    height: 35px;
+    border-radius: 50px;
+    background-color: #fff;
+    z-index: 2;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    
+    &:hover {
+        transform: scale(1.1);
+        background-color: #E9ECEF;
+    }
+}
+
+.dts.active {
+    width: 35px;
+    height: 35px;
+    border-radius: 50px;
+    background-color: #2C48CC;
+    z-index: 2;
+    transform: scale(1.2);
+    
+    &:hover {
+        background-color: #1a2d8a;
+        transform: scale(1.25);
+    }
+}
+
+.line {
+    width: 1032px;
+    height: 2px;
+    background-color: #fff;
+    z-index: 0;
+    position: absolute;
+    top: 50%;
+}
+
+.caseCarouselFooter {
+    display: flex;
+    flex-direction: column;
+    gap: 27px;
+    width: 1032px;
+}
+
+

@@ -54,7 +54,7 @@
 .talentContentWrp {
     width: 100%;
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 91.5px 0;
@@ -66,8 +66,8 @@
     justify-content: center;
     gap: 123px;
     width: 100%;
-}   
-    
+}
+
 .sectionContent {
     width: 619px;
     display: flex;
@@ -101,4 +101,271 @@
     align-items: center;
     height: 100%;
     margin: auto 0;
+}
+
+// Business Results section styles
+.businessResultsSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+    padding: 60px 0;
+    width: 100%;
+}
+
+.businessResultsTitle {
+    color: #181818;
+    margin-bottom: 48px;
+    font-size: 32px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.metricsContainer {
+    display: flex;
+    justify-content: center;
+    gap: 84px;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.metricItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.metricValue {
+    font-size: 48px;
+    font-weight: 700;
+    color: #181818;
+    margin-bottom: 8px;
+}
+
+.metricLabel {
+    font-size: 16px;
+    font-weight: 400;
+    color: #181818;
+    margin-bottom: 4px;
+}
+
+.metricSubtext {
+    font-size: 16px;
+    font-weight: 400;
+    font-style: italic;
+    color: #666;
+}
+
+// Traditional Outsourcing section styles
+.outsourcingSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+    padding: 60px 0;
+    width: 100%;
+}
+
+.outsourcingTitle {
+    color: #181818;
+    margin-bottom: 24px;
+    font-size: 32px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.outsourcingDescription {
+    color: #181818;
+    margin-bottom: 48px;
+    text-align: center;
+    max-width: 1000px;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.comparisonContainer {
+    display: flex;
+    justify-content: center;
+    gap: 80px;
+    width: 100%;
+    max-width: 800px;
+}
+
+.comparisonSide {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+    gap: 32px;
+}
+
+.comparisonIcon {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.traditional {
+    background-color: #E9ECEF;
+}
+
+.vts {
+    background-color: #111B4D;
+}
+
+.comparisonTitle {
+    font-size: 20px;
+    font-weight: 700;
+    color: #181818;
+}
+
+.factorsContainer.first {
+    width: 183px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: end;
+}
+
+.factorsContainer.second {
+    width: 183px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.factorBadge {
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+}
+
+.factorBadge.traditional {
+    background-color: #E9ECEF;
+    width: fit-content;
+    color: var(--Neutral-700, #495057);
+    text-align: center;
+    font-family: "Helvetica Neue";
+    font-size: 17.609px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.factorBadge.vts {
+    background-color: #111B4D;
+    width: fit-content;
+    color: var(--Neutral-100, #F8F9FA);
+    text-align: center;
+    font-family: "Helvetica Neue";
+    font-size: 17.609px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.learningSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 110px 0;
+    background-color: #0B1233;
+}
+
+.learningTitle {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 84px;
+}
+
+.transformativeLearning {
+    width: 1272px;
+    display: flex;
+    gap: 64px;
+    margin-bottom: 84px;
+}
+
+.table {
+    display: flex;
+    flex-direction: column;
+    width: 1257px;
+}
+
+.caseStudiesSection {
+    width: 100%;
+    padding: 0;
+    max-width: 1257px;
+    z-index: 2;
+}
+
+.caseStudiesWrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.caseStudiesTable {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    font-size: 14px;
+    color: #181818;
+
+    th,
+    td {
+        padding: 32px;
+        text-align: left;
+        vertical-align: top;
+
+        &:last-child {
+            border-right: none;
+        }
+    }
+
+    thead {
+        background-color: #ADB5BD;
+        color: #181818;
+
+        th {
+            font-weight: 600;
+            padding: 32px;
+
+            &:first-child {
+                width: 180px;
+            }
+        }
+    }
+
+    tbody {
+        tr {
+            height: 70px;
+
+            &:nth-child(odd) {
+                background-color: #CED4DA;
+                color: #181818;
+            }
+
+            &:nth-child(even) {
+                background-color: #DEE2E6;
+                color: #181818;
+            }
+
+            td {
+                padding: 32px;
+            }
+        }
+    }
+
+    .firstColumn,
+    .rowTitle {
+        font-weight: 600;
+        color: #181818;
+        width: 180px;
+    }
 }

@@ -1,0 +1,117 @@
+.judgementWrp {
+    display: flex;
+    flex-direction: column;
+    padding-top: 80px;
+    position: relative;
+    width: 100vw;
+    max-width: 100vw;
+    align-items: center;
+}
+
+.backgroundElement {
+    position: absolute;
+    top: -80px;
+    left: 0;
+    z-index: 0;
+
+    img {
+        max-width: 600px;
+        opacity: 0.8;
+    }
+}
+
+.judgementContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    background-color: white;
+    padding: 137px 0;
+}
+
+.cardContainer {
+    perspective: 1500px;
+    width: 100%;
+    max-width: 408px;
+    height: 306px;
+    margin: 0 auto;
+}
+
+.card {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s cubic-bezier(0.4, 0.0, 0.2, 1);
+    transform-style: preserve-3d;
+    cursor: pointer;
+    will-change: transform;
+    
+    &:hover {
+        transform: rotateY(180deg);
+    }
+}
+
+.cardFront, .cardBack {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 37px 38px;
+    background-color: #0B1233;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.cardFront {
+    gap: 32px;
+}
+
+.cardBack {
+    transform: rotateY(180deg);
+    -webkit-transform: rotateY(180deg);
+    
+    p {
+        color: #fff;
+        font-size: 16px;
+        line-height: 1.5;
+        text-align: center;
+    }
+}
+
+.judgementCardsWrp {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 24px;
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.whyItMattersWrp {
+    margin-top: 95px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    background-color: white;
+    gap: 64px;
+}
+
+.whyItMatters {
+    display: flex;
+    gap: 48px;
+}
+
+.whyItMattersItem {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 332px;
+    align-items: center;
+}

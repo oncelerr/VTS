@@ -1,6 +1,9 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const ContactUsBTN = () => {
+	const navigate = useNavigate();
+
 	return (
 		<button
 			style={{ 
@@ -10,7 +13,9 @@ const ContactUsBTN = () => {
 				border: "none", 
 				borderRadius: "20px", 
 				cursor: "pointer" 
-			}}>
+			}}
+			onClick={() => navigate('/contact')}
+			>
 				Contact Us
 			</button>
 	);

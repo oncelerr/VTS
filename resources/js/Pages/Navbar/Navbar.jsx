@@ -3,13 +3,55 @@ import { throttle } from '../../utils/throttle';
 import { debounce } from '../../utils/debounce';
 import styles from './Navbar.module.scss';
 import ContactUsBTN from '../../components/ContactUsButton/ContactUsBTN';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
+
+const NavbarData = {
+  logo: {
+    src: '../Assets/VTSlogo.svg',
+    alt: 'VTS Logo'
+  },
+  navigation: [
+    {
+      id: 1,
+      text: 'Home',
+      url: '/',
+      type: 'link'
+    },
+    {
+      id: 2,
+      text: 'Services',
+      url: '/services',
+      type: 'dropdown',
+      dropdownItems: [
+        { id: 1, text: 'Talent', url: '/talent' },
+        { id: 2, text: 'Teams', url: '/teams' }
+      ]
+    },
+    {
+      id: 3,
+      text: 'Roles',
+      url: '/roles',
+      type: 'link'
+    },
+    {
+      id: 4,
+      text: 'Our Approach',
+      url: '/our-approach',
+      type: 'dropdown',
+      dropdownItems: [
+        { id: 1, text: 'Judgment Model', url: '/judgement-model' },
+        { id: 2, text: 'Case Study', url: '/case-study' }
+      ]
+    }
+  ]
+}
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [hoveredDropdown, setHoveredDropdown] = useState(null);
   const navigate = useNavigate();
+  const location = useLocation();
   
   // Timeout reference for hover delay
   const hoverTimeoutRef = useRef(null);
@@ -58,6 +100,14 @@ const Navbar = () => {
     };
   }, []); // Empty dependency array since we check current state inside handler
   
+  // Smooth scroll to top when route changes
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  }, [location.pathname]);
+  
   // Handle click outside to close dropdown
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -85,7 +135,7 @@ const Navbar = () => {
     <>
       <div className={`${styles.navbarWrp} ${scrolled ? styles.scrolled : ''}`}>
         <div className={styles.vtsLogo}>
-          <img src="../Assets/VTSlogo.svg" alt="" />
+          <img src={NavbarData.logo.src} alt={NavbarData.logo.alt} />
         </div>
         <div className={styles.links}>
           <div className={styles.dropdown} onClick={() => navigate('/')}>
@@ -197,16 +247,28 @@ const Navbar = () => {
                 }}
               >
                 <div className={styles.dropdownItem}>
-                  <p>Judgement Model</p>
+                  <p onClick={(e) => {
+                    e.stopPropagation();
+                    navigate('/judgement-model');
+                  }}>Judgement Model</p>
                 </div>
                 <div className={styles.dropdownItem}>
-                  <p>Case Study</p>
+                  <p onClick={(e) => {
+                    e.stopPropagation();
+                    navigate('/case-study');
+                  }}>Case Study</p>
                 </div>
                 <div className={styles.dropdownItem}>
-                  <p>Our Story</p>
+                  <p onClick={(e) => {
+                    e.stopPropagation();
+                    navigate('/our-story');
+                  }}>Our Story</p>
                 </div>
                 <div className={styles.dropdownItem}>
-                  <p>Our Team</p>
+                  <p onClick={(e) => {
+                    e.stopPropagation();
+                    navigate('/our-team');
+                  }}>Our Team</p>
                 </div>
               </div>
             )}

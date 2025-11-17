@@ -25,7 +25,9 @@ const Hero = ({ HeroData }) => {
           <HollowBadge name={HeroData.badge} color="#E9ECEF" />
           <h1>{HeroData.title} <span style={{ fontWeight: '300', fontStyle: 'italic' }}>{HeroData.italicTitle}</span></h1>
           <p dangerouslySetInnerHTML={{ __html: HeroData.content }}></p>
-          <SolidBtn style={{ marginTop: '24px' }} name={HeroData.button} color="#1C2D80" />
+          {HeroData.button && (
+            <SolidBtn style={{ marginTop: '24px' }} name={HeroData.button} color="#1C2D80" />
+          )}
         </div>
       </div>
     </>

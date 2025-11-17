@@ -1,0 +1,60 @@
+.teamWrp {
+    padding-top: 80px;
+    position: relative;
+    width: 100vw;
+    max-width: 100vw;
+}
+
+.teamContent {
+    background-color: #fff;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.backgroundElement {
+    z-index: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    img {
+        z-index: 0;
+    }
+}
+
+.teamCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 97px;
+    z-index: 2;
+    position: relative;
+}
+
+.cardWrp {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 64px;
+    margin-top: 64px;
+}
+
+
+.card {
+    width: 581px;
+    height: 634px;
+    background-color: #F8F9FA;
+    border-radius: 16px;
+
+    .imgPpl {
+        width: 581px;
+        height: 419px;
+        object-fit: cover;
+        border-radius: 16px;
+    }
+}
+
+.cardContent {
+    padding: 36px;
+}

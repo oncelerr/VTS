@@ -1,0 +1,65 @@
+.caseWrp {
+    display: flex;
+    flex-direction: column;
+    padding-top: 80px;
+    position: relative;
+    width: 100vw;
+    max-width: 100vw;
+    align-items: center;
+}
+
+.backgroundElement {
+    position: absolute;
+    top: -80px;
+    left: 0;
+    z-index: 0;
+
+    img {
+        max-width: 600px;
+        opacity: 0.8;
+    }
+}
+
+.caseContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    background-color: white;
+    padding: 137px 0;
+}
+
+.vidWrp {
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 116px;
+}
+
+.vid {
+    border-radius: 20px;
+}
+
+.storyWrp {
+    display: flex;
+    flex-direction: column;
+    gap: 59px;
+}
+
+.storyTop {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    justify-content: center;
+}
+
+.storyText {
+    color: #181818;
+    width: 682px;
+}
+
+.storyImg {
+    width: 550px;
+    height: 396px;
+    object-fit: cover;
+    border-radius: 36px;
+}
