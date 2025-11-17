@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './Team.module.scss';
 import HollowBadge from '../../components/HollowBadge/HollowBadge';
 import SolidBtn from '../../components/SolidButton/SolidBTN';
@@ -17,33 +17,37 @@ const teamMembers = [
     name: 'Kimberly Ongcuangco',
     position: 'Co-Founder & Managing Partner',
     image: '/Assets/ppl.jpg',
+    description: 'Kim has spent her career helping people find not just jobs, but purpose. As Co-Founder and Managing Partner, she leads with intuition, empathy, and a deep understanding of what makes businesses thrive.',
     socialLinks: {
       instagram: '/Assets/insta-white.svg',
       twitter: '/Assets/tweeter-white.svg'
     }
   },
   {
-    name: 'John Smith',
-    position: 'Chief Technology Officer',
+    name: 'Sang Won Hwang, Ph.D.',
+    position: 'Co-Founder',
     image: '/Assets/ppl.jpg',
+    description: 'With over a decade of experience leading talent acquisition for some of the Philippines\' top BPOs, she knows that behind every business success is the right person in the right role at the right time.',
     socialLinks: {
       instagram: '/Assets/insta-white.svg',
       twitter: '/Assets/tweeter-white.svg'
     }
   },
   {
-    name: 'Sarah Johnson',
-    position: 'Head of Operations',
+    name: 'Cesar Sorilla',
+    position: 'Senior Vice President, Client Acquisition & Growth',
     image: '/Assets/ppl.jpg',
+    description: 'For Kim, talent acquisition isn\'t about filling seats — it\'s building futures. She\'s passionate about developing people from the inside out, creating environments where confidence, capability, and connection grow together.',
     socialLinks: {
       instagram: '/Assets/insta-white.svg',
       twitter: '/Assets/tweeter-white.svg'
     }
   },
   {
-    name: 'Michael Chen',
-    position: 'Director of Business Development',
+    name: 'Michelle Dela Rosa',
+    position: 'Associate Director, Strategic Partnerships – APAC',
     image: '/Assets/ppl.jpg',
+    description: 'Her vision is simple but powerful: when people believe in themselves, they deliver extraordinary outcomes.',
     socialLinks: {
       instagram: '/Assets/insta-white.svg',
       twitter: '/Assets/tweeter-white.svg'
@@ -54,6 +58,8 @@ const teamMembers = [
 
 
 const Team = () => {
+  const [hoveredCard, setHoveredCard] = useState(null);
+
   return (
     <>
       <div className={styles.teamWrp}>
@@ -70,14 +76,32 @@ const Team = () => {
 
             <div className={styles.cardWrp}>
               {teamMembers.map((member, index) => (
-                <div key={index} className={styles.card}>
+                <div 
+                  key={index} 
+                  className={styles.card}
+                  onMouseEnter={() => setHoveredCard(index)}
+                  onMouseLeave={() => setHoveredCard(null)}
+                >
                   <img className={styles.imgPpl} src={member.image} alt={member.name} />
                   <div className={styles.cardContent}>
                     <h5 style={{marginBottom: '16px'}}>{member.name}</h5>
                     <p style={{ color: '#181818', marginBottom: '36px' }}>{member.position}</p>
                     <div style={{display: 'flex', gap: '16px'}}>
-                      <img style={{ width: '24px', height: '24px', objectFit: 'cover' }} src={member.socialLinks.instagram} alt="Instagram" />
-                      <img style={{ width: '24px', height: '24px', objectFit: 'cover' }} src={member.socialLinks.twitter} alt="Twitter" />
+                      <img style={{ width: '24px', height: '24px', objectFit: 'cover', cursor: 'pointer' }} src='/Assets/insta-white.svg' alt="Instagram" />
+                      <img style={{ width: '24px', height: '24px', objectFit: 'cover', cursor: 'pointer' }} src='/Assets/tweeter-white.svg' alt="Twitter" />
+                    </div>
+                  </div>
+                  
+                  {/* Hover Overlay */}
+                  <div className={`${styles.cardOverlay} ${hoveredCard === index ? styles.visible : ''}`}>
+                    <div className={styles.overlayContent}>
+                      <h3 className={styles.overlayName}>{member.name}</h3>
+                      <p className={styles.overlayPosition}>{member.position}</p>
+                      <p className={styles.overlayDescription}>{member.description}</p>
+                      <div className={styles.overlaySocial}>
+                        <img src='/Assets/insta.svg' alt="Instagram" />
+                        <img src='/Assets/tweeter.svg' alt="Twitter" />
+                      </div>
                     </div>
                   </div>
                 </div>

@@ -12,7 +12,9 @@ const ContactUsBTN = () => {
 				padding: "14px 24px", 
 				border: "none", 
 				borderRadius: "20px", 
-				cursor: "pointer" 
+				cursor: "pointer",
+				fontFamily: 'Helvetica Neue',
+				fontSize: '16px',
 			}}
 			onClick={() => navigate('/contact')}
 			>
