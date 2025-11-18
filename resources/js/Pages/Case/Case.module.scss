@@ -167,4 +167,117 @@
     width: 1032px;
 }
 
+@media (max-width: 480px) {
+    .caseContentH1 {
+        width: 312px !important;
+    }
+    .caseContent {
+        padding: 49px 24px;
+    }
 
+    .caseContent h1 {
+        width: 312px;
+        font-size: 32px !important;
+        text-align: center;
+    }
+
+    .caseContent p {
+        width: 312px !important;
+        font-size: 14px !important;
+        text-align: center;
+    }
+
+    .caseCarousel {
+        width: 312px;
+        padding: 48px 24px;
+        gap: 32px;
+    }
+
+    .caseCarouselHeader {
+        width: 312px;
+        text-align: center;
+        gap: 16px;
+    }
+
+    .caseCarouselHeader h3 {
+        font-size: 20px !important;
+    }
+
+    .caseCarouselHeader h4 {
+        width: 312px !important;
+        font-size: 16px !important;
+        text-align: center !important;
+    }
+
+    .caseCarouselHeader h6 {
+        font-size: 16px !important;
+    }
+
+    .caseCarouselWrp {
+        width: 312px;
+        gap: 16px;
+    }
+
+    .carousel {
+        width: 264px;
+        padding: 24px;
+        gap: 16px;
+        border-radius: 16px;
+    }
+
+    .carouselHeader {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+    }
+
+    .carouselHeader p:first-child {
+        font-size: 24px !important;
+    }
+
+    .carouselHeader h6 {
+        font-size: 14px !important;
+    }
+
+    .carouselHeader h5 {
+        font-size: 16px !important;
+    }
+
+    .carouselContent p {
+        font-size: 12px !important;
+        text-align: center;
+    }
+
+    .caseCarouselDots {
+        width: 264px;
+    }
+
+    .dtsWrp {
+        justify-content: center;
+        gap: 12px;
+    }
+
+    .line {
+        width: 264px;
+    }
+
+    .caseCarouselFooter {
+        width: 264px;
+        text-align: center;
+        gap: 16px;
+    }
+
+    .caseCarouselFooter h3 {
+        font-size: 20px !important;
+    }
+
+    .caseCarouselFooter p {
+        font-size: 14px !important;
+    }
+
+    .caseCarouselFooter h4 {
+        width: 264px !important;
+        font-size: 16px !important;
+        text-align: center !important;
+    }
+}

@@ -16,6 +16,7 @@ const HollowBtn = ({name, path, color}) => {
 				fontWeight: "bold",
 				fontSize: "16px",
 				zIndex: 2,
+				textAlign: 'center'
 			}}
 			onClick={() => navigate(path)}
 			>

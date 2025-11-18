@@ -62,30 +62,33 @@ const TalentContent = () => {
     <>
       <div className={styles.talentContentWrp}>
         <div className={styles.section}>
+          <h3 className={styles.sectionh3mobile} style={{color: 'white'}}>{TalentContentData[0].title}</h3>
           <div className={styles.sectionImg}>
-            <img style={{ objectFit: 'cover', width: '368px', height: '368px', borderRadius: '16px', border: '6px solid #FFF' }} src={TalentContentData[0].image} alt="" />
+            <img className={styles.sectionImgMobile} style={{ objectFit: 'cover', width: '368px', height: '368px', borderRadius: '16px', border: '6px solid #FFF' }} src={TalentContentData[0].image} alt="" />
           </div>
           <div className={styles.sectionContent}>
-            <h3 style={{color: 'white'}}>{TalentContentData[0].title}</h3>
-            <p dangerouslySetInnerHTML={{ __html: TalentContentData[0].content }}></p>
+            <h3 className={styles.sectionh3desktop} style={{color: 'white'}}>{TalentContentData[0].title}</h3>
+            <p className={styles.sectionP} dangerouslySetInnerHTML={{ __html: TalentContentData[0].content }}></p>
           </div>
         </div>
         <div className={styles.section}>
           <div className={styles.sectionContent}>
-            <h3 style={{color: 'white'}}>{TalentContentData[1].title}</h3>
-            <p dangerouslySetInnerHTML={{ __html: TalentContentData[1].content }}></p>
+            <h3 className={styles.sectionh3desktop} style={{color: 'white'}}>{TalentContentData[1].title}</h3>
+            <p className={styles.sectionP} dangerouslySetInnerHTML={{ __html: TalentContentData[1].content }}></p>
           </div>
           <div className={styles.sectionImg}>
-            <img style={{ objectFit: 'cover', width: '368px', height: '368px', borderRadius: '16px', border: '6px solid #FFF' }} src={TalentContentData[1].image} alt="" />
+            <img className={styles.sectionImgMobile} style={{ objectFit: 'cover', width: '368px', height: '368px', borderRadius: '16px', border: '6px solid #FFF' }} src={TalentContentData[1].image} alt="" />
           </div>
+          <h3 className={styles.sectionh3mobile} style={{color: 'white'}}>{TalentContentData[1].title}</h3>
         </div>
         <div className={styles.section}>
+          <h3 className={styles.sectionh3mobile} style={{color: 'white'}}>{TalentContentData[2].title}</h3>
           <div className={styles.sectionImg}>
-            <img style={{ objectFit: 'cover', width: '368px', height: '368px', borderRadius: '16px', border: '6px solid #FFF' }} src={TalentContentData[2].image} alt="" />
+            <img className={styles.sectionImgMobile} style={{ objectFit: 'cover', width: '368px', height: '368px', borderRadius: '16px', border: '6px solid #FFF' }} src={TalentContentData[2].image} alt="" />
           </div>
           <div className={styles.sectionContent}>
-            <h3 style={{color: 'white'}}>{TalentContentData[2].title}</h3>
-            <p dangerouslySetInnerHTML={{ __html: TalentContentData[2].content }}></p>
+            <h3 className={styles.sectionh3desktop} style={{color: 'white'}}>{TalentContentData[2].title}</h3>
+            <p  className={styles.sectionP} dangerouslySetInnerHTML={{ __html: TalentContentData[2].content }}></p>
           </div>
         </div>
       </div>

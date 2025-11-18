@@ -13,7 +13,7 @@ const HeroData = {
 
 const TalentContentData = [
   { image: '/Assets/ppl.jpg', title: 'Why Clients Choose VTS for Global Teams', content: 'Fast Market Entry: Launch teams in weeks without setting up a local entity.<br/><br/>Compliance Confidence: Stay aligned with local labor laws and tax regulations, streamlined work visa and immigration processing.<br/><br/>Simplified Payroll & Benefits: One platform for global pay and HR administration.<br/><br/>Cost Efficiency: Eliminate upfront infrastructure and reduce admin overhead.<br/><br/>Reduced Risk: We absorb the compliance and legal burden so you can scale safely.<br/><br/>Human-Centered Support: Local HR experts ensure smooth onboarding and high engagement.' },
-  
+
   { image: '/Assets/ppl.jpg', title: 'Why Clients Choose the VTS for Managed Teams', content: '25% Higher Accuracy – Teams consistently outperform market error rates, delivering cleaner data, better customer experiences, and fewer costly reworks.<br/><br/>Stronger Productivity – On average, our people handle 20–25% more volume per hour while maintaining quality, accelerating throughput across digital-ready workflows.<br/><br/>Superior SLA Compliance – 90%+ SLA adherence compared to a 70% market benchmark means you can count on reliable, on-time delivery at scale.<br/><br/>Judgment Consistency – In roles requiring critical decision-making—content moderation, fraud review, healthcare ops—our teams achieve 25% greater consistency than industry peers.<br/><br/>First-Time Resolution – 85% resolution rates without escalation, compared to 65% in the broader market.' },
 ]
 
@@ -64,22 +64,24 @@ const TalentContent = () => {
     <>
       <div className={styles.talentContentWrp}>
         <div className={styles.section}>
+          <h3 className={styles.sectionh3mobile} style={{ color: 'white' }}>{TalentContentData[0].title}</h3>
           <div className={styles.sectionImg}>
-            <img style={{ objectFit: 'cover', width: '368px', height: '368px', borderRadius: '16px', border: '6px solid #FFF' }} src={TalentContentData[0].image} alt="" />
+            <img className={styles.sectionImgMobile} style={{ objectFit: 'cover', width: '368px', height: '368px', borderRadius: '16px', border: '6px solid #FFF' }} src={TalentContentData[0].image} alt="" />
           </div>
           <div className={styles.sectionContent}>
-            <h3 style={{color: 'white'}}>{TalentContentData[0].title}</h3>
-            <p dangerouslySetInnerHTML={{ __html: TalentContentData[0].content }}></p>
+            <h3 className={styles.sectionh3desktop} style={{ color: 'white' }}>{TalentContentData[0].title}</h3>
+            <p className={styles.sectionP} dangerouslySetInnerHTML={{ __html: TalentContentData[0].content }}></p>
           </div>
         </div>
         <div className={styles.section}>
           <div className={styles.sectionContent}>
-            <h3 style={{color: 'white'}}>{TalentContentData[1].title}</h3>
-            <p dangerouslySetInnerHTML={{ __html: TalentContentData[1].content }}></p>
+            <h3 className={styles.sectionh3desktop} style={{ color: 'white' }}>{TalentContentData[1].title}</h3>
+            <p className={styles.sectionP} dangerouslySetInnerHTML={{ __html: TalentContentData[1].content }}></p>
           </div>
           <div className={styles.sectionImg}>
-            <img style={{ objectFit: 'cover', width: '368px', height: '368px', borderRadius: '16px', border: '6px solid #FFF' }} src={TalentContentData[1].image} alt="" />
+            <img className={styles.sectionImgMobile} style={{ objectFit: 'cover', width: '368px', height: '368px', borderRadius: '16px', border: '6px solid #FFF' }} src={TalentContentData[1].image} alt="" />
           </div>
+          <h3 className={styles.sectionh3mobile} style={{ color: 'white' }}>{TalentContentData[1].title}</h3>
         </div>
       </div>
     </>
@@ -94,7 +96,7 @@ const Teams = () => {
       <div className={styles.talentWrp}>
         <Hero />
         <TalentContent />
-        <CTA data={{...ctaData, fontSize: '36px !important'}} />
+        <CTA data={{ ...ctaData, fontSize: '36px !important' }} />
       </div>
     </>
   );

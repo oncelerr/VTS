@@ -120,3 +120,111 @@
         max-height: 40px;
     }
 }
+
+// Mobile styles
+@media (max-width: 480px) {
+    .navbarWrp {
+        padding: 16px 20px;
+        height: 60px;
+        
+        &.mobile {
+            .links, .btn {
+                display: none;
+            }
+        }
+        
+        &.mobileMenuOpen {
+            background-color: #0B1233;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+    }
+    
+    .hamburger {
+        cursor: pointer;
+        padding: 8px;
+        
+        img {
+            width: 24px;
+            height: 24px;
+        }
+    }
+    
+    .mobileMenu {
+        position: fixed;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background-color: #0B1233;
+        z-index: 999;
+        padding: 20px;
+        animation: slideDown 0.3s ease-out;
+        max-height: calc(100vh - 60px);
+        overflow-y: auto;
+        
+        &.closing {
+            animation: slideUp 0.3s ease-in;
+        }
+    }
+    
+    @keyframes slideDown {
+        from {
+            transform: translateY(-100%);
+            opacity: 0;
+        }
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+    
+    @keyframes slideUp {
+        from {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        to {
+            transform: translateY(-100%);
+            opacity: 0;
+        }
+    }
+    
+    .mobileMenuItem {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        
+        &:last-child {
+            border-bottom: none;
+            margin-top: 20px;
+        }
+        
+        // Styles for simple menu items (not headers)
+        > p {
+            color: #fff;
+            font-size: 16px;
+            font-weight: 500;
+            padding: 16px 0;
+            cursor: pointer;
+            
+            &:hover {
+                color: #ccc;
+            }
+        }
+    }
+    
+    
+    .mobileSubMenuItem {
+        padding-left: 20px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        
+        p {
+            font-size: 14px;
+            font-weight: 400;
+            padding: 12px 0;
+            color: #ccc;
+            cursor: pointer;
+            
+            &:hover {
+                color: #fff;
+            }
+        }
+    }
+}

@@ -36,7 +36,7 @@ const NavbarData = {
     {
       id: 4,
       text: 'Our Approach',
-      url: '/our-approach',
+      url: '/approach',
       type: 'dropdown',
       dropdownItems: [
         { id: 1, text: 'Judgment Model', url: '/judgement-model' },
@@ -50,6 +50,9 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [hoveredDropdown, setHoveredDropdown] = useState(null);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMobileMenuClosing, setIsMobileMenuClosing] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
   
@@ -58,6 +61,18 @@ const Navbar = () => {
 
   // Keep track of previous scroll position
   const lastScrollY = useRef(0);
+
+  // Mobile detection useEffect
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 480);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   useEffect(() => {
     // Create the scroll handler
@@ -108,11 +123,14 @@ const Navbar = () => {
     });
   }, [location.pathname]);
   
-  // Handle click outside to close dropdown
+  // Handle click outside to close dropdown and mobile menu
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (activeDropdown && !event.target.closest(`.${styles.dropdown}`)) {
         setActiveDropdown(null);
+      }
+      if (isMobileMenuOpen && !event.target.closest(`.${styles.mobileMenu}`) && !event.target.closest(`.${styles.hamburger}`)) {
+        closeMobileMenu();
       }
     };
     
@@ -129,155 +147,259 @@ const Navbar = () => {
       document.removeEventListener('click', handleClickOutside);
       cleanupTimeouts();
     };
-  }, [activeDropdown]);
+  }, [activeDropdown, isMobileMenuOpen]);
+
+  // Handle body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isMobileMenuOpen]);
+
+  // Helper function to close mobile menu with animation
+  const closeMobileMenu = () => {
+    setIsMobileMenuClosing(true);
+    setTimeout(() => {
+      setIsMobileMenuOpen(false);
+      setIsMobileMenuClosing(false);
+    }, 300); // Match animation duration
+  };
+
+  // Helper function to handle mobile navigation
+  const handleMobileNavigation = (url) => {
+    navigate(url);
+    closeMobileMenu();
+  };
+
+  // Helper function to toggle mobile dropdown
+  const toggleMobileDropdown = (dropdownName) => {
+    setActiveDropdown(activeDropdown === dropdownName ? null : dropdownName);
+  };
 
   return (
     <>
-      <div className={`${styles.navbarWrp} ${scrolled ? styles.scrolled : ''}`}>
+      <div className={`${styles.navbarWrp} ${scrolled ? styles.scrolled : ''} ${isMobile ? styles.mobile : ''} ${isMobileMenuOpen ? styles.mobileMenuOpen : ''}`}>
         <div className={styles.vtsLogo}>
           <img src={NavbarData.logo.src} alt={NavbarData.logo.alt} />
         </div>
-        <div className={styles.links}>
-          <div className={styles.dropdown} onClick={() => navigate('/')}>
-            <p>Home</p>
-          </div>
+        
+        {/* Mobile hamburger menu */}
+        {isMobile && (
           <div 
-            className={styles.dropdown} 
-            onMouseEnter={() => {
-              // Clear any existing timeout
-              if (hoverTimeoutRef.current) {
-                clearTimeout(hoverTimeoutRef.current);
+            className={styles.hamburger}
+            onClick={() => {
+              if (isMobileMenuOpen) {
+                closeMobileMenu();
+              } else {
+                setIsMobileMenuOpen(true);
               }
-              setHoveredDropdown('services');
-            }}
-            onMouseLeave={() => {
-              // Set a small delay before closing to make the interaction smoother
-              hoverTimeoutRef.current = setTimeout(() => {
-                if (hoveredDropdown === 'services') {
-                  setHoveredDropdown(null);
-                }
-              }, 100);
             }}
           >
-            <p>
-              <span onClick={(e) => {
-                e.stopPropagation();
-                navigate('/services');
-              }}>Services</span> <img className={(activeDropdown === 'services' || hoveredDropdown === 'services') ? styles.rotated : ''} src="/Assets/downChevron.svg" alt="" />
-            </p>
-            {(activeDropdown === 'services' || hoveredDropdown === 'services') && (
+            <img src="/Assets/hamburger.svg" alt="Menu" />
+          </div>
+        )}
+        
+        {/* Desktop links */}
+        {!isMobile && (
+          <>
+            <div className={styles.links}>
+              <div className={styles.dropdown} onClick={() => navigate('/')}>
+                <p>Home</p>
+              </div>
               <div 
-                className={styles.dropdownMenu}
+                className={styles.dropdown} 
                 onMouseEnter={() => {
-                  // Clear timeout when mouse enters dropdown menu
+                  // Clear any existing timeout
                   if (hoverTimeoutRef.current) {
                     clearTimeout(hoverTimeoutRef.current);
                   }
                   setHoveredDropdown('services');
                 }}
                 onMouseLeave={() => {
-                  // Set timeout when mouse leaves dropdown menu
+                  // Set a small delay before closing to make the interaction smoother
                   hoverTimeoutRef.current = setTimeout(() => {
-                    if (hoveredDropdown === 'services' && activeDropdown !== 'services') {
+                    if (hoveredDropdown === 'services') {
                       setHoveredDropdown(null);
                     }
                   }, 100);
                 }}
               >
-                <div className={styles.dropdownItem}> 
-                  <p onClick={(e) => {
+                <p>
+                  <span onClick={(e) => {
                     e.stopPropagation();
-                    navigate('/talent');
-                  }}>Talent</p>
-                </div>
-                <div className={styles.dropdownItem}>
-                  <p onClick={(e) => {
-                    e.stopPropagation();
-                    navigate('/teams');
-                  }}>Teams</p>
-                </div>
+                    navigate('/services');
+                  }}>Services</span> <img className={(activeDropdown === 'services' || hoveredDropdown === 'services') ? styles.rotated : ''} src="/Assets/downChevron.svg" alt="" />
+                </p>
+                {(activeDropdown === 'services' || hoveredDropdown === 'services') && (
+                  <div 
+                    className={styles.dropdownMenu}
+                    onMouseEnter={() => {
+                      // Clear timeout when mouse enters dropdown menu
+                      if (hoverTimeoutRef.current) {
+                        clearTimeout(hoverTimeoutRef.current);
+                      }
+                      setHoveredDropdown('services');
+                    }}
+                    onMouseLeave={() => {
+                      // Set timeout when mouse leaves dropdown menu
+                      hoverTimeoutRef.current = setTimeout(() => {
+                        if (hoveredDropdown === 'services' && activeDropdown !== 'services') {
+                          setHoveredDropdown(null);
+                        }
+                      }, 100);
+                    }}
+                  >
+                    <div className={styles.dropdownItem}> 
+                      <p onClick={(e) => {
+                        e.stopPropagation();
+                        navigate('/talent');
+                      }}>Talent</p>
+                    </div>
+                    <div className={styles.dropdownItem}>
+                      <p onClick={(e) => {
+                        e.stopPropagation();
+                        navigate('/teams');
+                      }}>Teams</p>
+                    </div>
+                  </div>
+                )}
               </div>
-            )}
-          </div>
-          <div onClick={(e) => {
-            e.stopPropagation();
-            navigate('/roles');
-          }} className={styles.dropdown}>
-            <p>Roles</p>
-          </div>
-          <div 
-            className={styles.dropdown} 
-            onMouseEnter={() => {
-              // Clear any existing timeout
-              if (hoverTimeoutRef.current) {
-                clearTimeout(hoverTimeoutRef.current);
-              }
-              setHoveredDropdown('approach');
-            }}
-            onMouseLeave={() => {
-              // Set a small delay before closing to make the interaction smoother
-              hoverTimeoutRef.current = setTimeout(() => {
-                if (hoveredDropdown === 'approach') {
-                  setHoveredDropdown(null);
-                }
-              }, 100);
-            }}
-          >
-            <p onClick={(e) => {
-              e.stopPropagation();
-              navigate('/approach');
-            }}>Our Approach <img className={(activeDropdown === 'approach' || hoveredDropdown === 'approach') ? styles.rotated : ''} src="/Assets/downChevron.svg" alt="" /></p>
-            {(activeDropdown === 'approach' || hoveredDropdown === 'approach') && (
+              <div onClick={(e) => {
+                e.stopPropagation();
+                navigate('/roles');
+              }} className={styles.dropdown}>
+                <p>Roles</p>
+              </div>
               <div 
-                className={styles.dropdownMenu}
+                className={styles.dropdown} 
                 onMouseEnter={() => {
-                  // Clear timeout when mouse enters dropdown menu
+                  // Clear any existing timeout
                   if (hoverTimeoutRef.current) {
                     clearTimeout(hoverTimeoutRef.current);
                   }
                   setHoveredDropdown('approach');
                 }}
                 onMouseLeave={() => {
-                  // Set timeout when mouse leaves dropdown menu
+                  // Set a small delay before closing to make the interaction smoother
                   hoverTimeoutRef.current = setTimeout(() => {
-                    if (hoveredDropdown === 'approach' && activeDropdown !== 'approach') {
+                    if (hoveredDropdown === 'approach') {
                       setHoveredDropdown(null);
                     }
                   }, 100);
                 }}
               >
-                <div className={styles.dropdownItem}>
-                  <p onClick={(e) => {
-                    e.stopPropagation();
-                    navigate('/judgement-model');
-                  }}>Judgement Model</p>
-                </div>
-                <div className={styles.dropdownItem}>
-                  <p onClick={(e) => {
-                    e.stopPropagation();
-                    navigate('/case-study');
-                  }}>Case Study</p>
-                </div>
-                <div className={styles.dropdownItem}>
-                  <p onClick={(e) => {
-                    e.stopPropagation();
-                    navigate('/our-story');
-                  }}>Our Story</p>
-                </div>
-                <div className={styles.dropdownItem}>
-                  <p onClick={(e) => {
-                    e.stopPropagation();
-                    navigate('/our-team');
-                  }}>Our Team</p>
-                </div>
+                <p onClick={(e) => {
+                  e.stopPropagation();
+                  navigate('/approach');
+                }}>Our Approach <img className={(activeDropdown === 'approach' || hoveredDropdown === 'approach') ? styles.rotated : ''} src="/Assets/downChevron.svg" alt="" /></p>
+                {(activeDropdown === 'approach' || hoveredDropdown === 'approach') && (
+                  <div 
+                    className={styles.dropdownMenu}
+                    onMouseEnter={() => {
+                      // Clear timeout when mouse enters dropdown menu
+                      if (hoverTimeoutRef.current) {
+                        clearTimeout(hoverTimeoutRef.current);
+                      }
+                      setHoveredDropdown('approach');
+                    }}
+                    onMouseLeave={() => {
+                      // Set timeout when mouse leaves dropdown menu
+                      hoverTimeoutRef.current = setTimeout(() => {
+                        if (hoveredDropdown === 'approach' && activeDropdown !== 'approach') {
+                          setHoveredDropdown(null);
+                        }
+                      }, 100);
+                    }}
+                  >
+                    <div className={styles.dropdownItem}>
+                      <p onClick={(e) => {
+                        e.stopPropagation();
+                        navigate('/judgement-model');
+                      }}>Judgement Model</p>
+                    </div>
+                    <div className={styles.dropdownItem}>
+                      <p onClick={(e) => {
+                        e.stopPropagation();
+                        navigate('/case-study');
+                      }}>Case Study</p>
+                    </div>
+                    <div className={styles.dropdownItem}>
+                      <p onClick={(e) => {
+                        e.stopPropagation();
+                        navigate('/our-story');
+                      }}>Our Story</p>
+                    </div>
+                    <div className={styles.dropdownItem}>
+                      <p onClick={(e) => {
+                        e.stopPropagation();
+                        navigate('/our-team');
+                      }}>Our Team</p>
+                    </div>
+                  </div>
+                )}
               </div>
-            )}
+            </div>
+            <div className={styles.btn}>
+              <ContactUsBTN />
+            </div>
+          </>
+        )}
+      </div>
+      
+      {/* Mobile Menu */}
+      {isMobile && (isMobileMenuOpen || isMobileMenuClosing) && (
+        <div className={`${styles.mobileMenu} ${isMobileMenuClosing ? styles.closing : ''}`}>
+          <div className={styles.mobileMenuItem} onClick={() => handleMobileNavigation('/')}>
+            <p>Home</p>
+          </div>
+          
+          <div className={styles.mobileMenuItem} onClick={() => handleMobileNavigation('/services')}>
+            <p>Services</p>
+          </div>
+          
+          <div className={styles.mobileSubMenuItem} onClick={() => handleMobileNavigation('/talent')}>
+            <p>Talent</p>
+          </div>
+          
+          <div className={styles.mobileSubMenuItem} onClick={() => handleMobileNavigation('/teams')}>
+            <p>Teams</p>
+          </div>
+          
+          <div className={styles.mobileMenuItem} onClick={() => handleMobileNavigation('/roles')}>
+            <p>Roles</p>
+          </div>
+          
+          <div className={styles.mobileMenuItem} onClick={() => handleMobileNavigation('/approach')}>
+            <p>Our Approach</p>
+          </div>
+          
+          <div className={styles.mobileSubMenuItem} onClick={() => handleMobileNavigation('/judgement-model')}>
+            <p>Judgement Model</p>
+          </div>
+          
+          <div className={styles.mobileSubMenuItem} onClick={() => handleMobileNavigation('/case-study')}>
+            <p>Case Study</p>
+          </div>
+          
+          <div className={styles.mobileSubMenuItem} onClick={() => handleMobileNavigation('/our-story')}>
+            <p>Our Story</p>
+          </div>
+          
+          <div className={styles.mobileSubMenuItem} onClick={() => handleMobileNavigation('/our-team')}>
+            <p>Our Team</p>
+          </div>
+          
+          <div className={styles.mobileMenuItem}>
+            <ContactUsBTN />
           </div>
         </div>
-        <div className={styles.btn}>
-          <ContactUsBTN />
-        </div>
-      </div>
+      )}
     </>
   );
 };

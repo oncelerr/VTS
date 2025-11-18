@@ -369,3 +369,169 @@
         width: 180px;
     }
 }
+
+@media (max-width: 480px) {
+    .businessResultsSection {
+        padding: 48px 24px;
+    }
+
+    .businessResultsTitle {
+        width: 312px;
+        font-size: 24px;
+        margin-bottom: 32px;
+    }
+
+    .metricsContainer {
+        flex-direction: column;
+        gap: 32px;
+        width: 312px;
+    }
+
+    .metricItem {
+        width: 312px;
+    }
+
+    .metricValue {
+        font-size: 36px;
+    }
+
+    .metricLabel {
+        font-size: 14px;
+    }
+
+    .metricSubtext {
+        font-size: 12px;
+    }
+
+    .outsourcingSection {
+        padding: 48px 24px;
+    }
+
+    .outsourcingTitle {
+        width: 312px;
+        font-size: 24px;
+        margin-bottom: 16px;
+    }
+
+    .outsourcingDescription {
+        width: 312px;
+        font-size: 14px;
+        margin-bottom: 32px;
+    }
+
+    .hrMoble {
+        height: 314px !important;
+    }
+
+    .comparisonContainer {
+        gap: 44px;
+        width: 312px;
+    }
+
+    .comparisonSide {
+        flex-direction: column;
+        gap: 16px;
+        width: 98.2px !important;
+
+        &:nth-child(1) {
+            flex-direction: column-reverse;
+        }
+    }
+
+    .factorsContainer.first,
+    .factorsContainer.second {
+        width: 312px;
+        align-items: center;
+    }
+
+    .factorBadge {
+        font-size: 14px;
+        padding: 6px 12px;
+    }
+
+    .learningSection {
+        padding: 48px 24px;
+    }
+
+    .learningTitle {
+        width: 312px;
+        text-align: center;
+        margin-bottom: 32px;
+
+        h3 {
+            font-size: 24px;
+        }
+
+        p {
+            width: 312px !important;
+            font-size: 14px;
+        }
+    }
+
+    .transformativeLearning {
+        width: 312px;
+        flex-direction: column;
+        gap: 24px;
+        margin-bottom: 32px;
+
+        .text {
+            width: 312px;
+
+            h6 {
+                font-size: 18px;
+                margin-bottom: 16px;
+            }
+
+            p {
+                font-size: 14px;
+            }
+        }
+
+        img {
+            width: 312px !important;
+            height: 340px !important;
+        }
+    }
+
+    .table {
+        width: 312px;
+
+        h4 {
+            font-size: 18px !important;
+            text-align: center !important;
+            margin-bottom: 16px !important;
+        }
+    }
+
+    .caseStudiesSection {
+        width: 312px;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .caseStudiesWrapper {
+        width: 600px;
+        min-width: 600px;
+    }
+
+    .caseStudiesTable {
+        width: 600px;
+        min-width: 600px;
+        font-size: 12px;
+
+        th,
+        td {
+            padding: 16px 12px;
+        }
+
+        thead th {
+            font-size: 12px;
+            padding: 16px 12px;
+        }
+
+        tbody td {
+            font-size: 11px;
+            padding: 16px 12px;
+        }
+    }
+}

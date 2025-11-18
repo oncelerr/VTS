@@ -113,7 +113,7 @@ const Judgement = () => {
             <div className={styles.whyItMatters}>
               {WhyItMattersData.items.map((item, index) => (
                 <React.Fragment key={item.id}>
-                  {index > 0 && <div style={{ width: '1px', height: '215px', backgroundColor: '#CED4DA' }} />}
+                  {index > 0 && <div className={styles.divider} style={{ width: '1px', height: '215px', backgroundColor: '#CED4DA' }} />}
                   <div className={styles.whyItMattersItem}>
                     <p style={{ width: 'fit-content', color: '#6C757D', fontSize: '32px', padding: '17px 22.5px', backgroundColor: '#E9ECEF', borderRadius: '50px' }}>{item.number}</p>
                     <p style={{ color: '#181818', fontSize: '24px', textAlign: 'center' }}>{item.title}</p>

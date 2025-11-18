@@ -268,8 +268,8 @@ const Roles = () => {
             </div>
           </div>
           <div className={styles.rolesSectBottom}>
-            <h3>{TalentStandardsData.title}</h3>
-            <p style={{ color: '#181818', width: '700px', textAlign: 'center', marginBottom: '48px', marginTop: '16px' }}>{TalentStandardsData.description}</p>
+            <h3 className={styles.rolesSectBottomh3mobile}>{TalentStandardsData.title}</h3>
+            <p className={styles.rolesSectBottomh3p} style={{ color: '#181818', width: '700px', textAlign: 'center', marginBottom: '48px', marginTop: '16px' }}>{TalentStandardsData.description}</p>
             <div className={styles.rolesSectBottomContent}>
               {TalentStandardsData.standards.map((standard) => (
                 <div key={standard.id} style={{ display: 'flex', flexDirection: 'column', gap: '16px', padding: '48px 20px', backgroundColor: '#0B1233', borderRadius: '8px', maxWidth: '306px' }}>
@@ -281,12 +281,13 @@ const Roles = () => {
             </div>
           </div>
         </div>
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', backgroundColor: '#0B1233', padding: '60px 0' }}>
-          <h3 style={{ color: '#fff', marginBottom: '40px' }}>{SpecializedRolesData.title}</h3>
+        <div className={styles.specializedRolesContainer} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', backgroundColor: '#0B1233', padding: '60px 0' }}>
+          <h3 className={styles.h3mobile} style={{ color: '#fff', marginBottom: '40px' }}>{SpecializedRolesData.title}</h3>
           
-          <div style={{ width: '90%', maxWidth: '1184px', backgroundColor: '#fff', borderRadius: '8px', overflow: 'hidden', display: 'flex' }}>
+          <div className={styles.tableWrapper}>
+            <div className={styles.tableMobile} style={{ backgroundColor: '#fff', borderRadius: '8px', overflow: 'hidden', display: 'flex' }}>
             {/* Left side: Role Categories and Key Capabilities */}
-            <div style={{ flex: '3', display: 'flex', flexDirection: 'column', width: '75%' }}>
+            <div className={styles.clmn12} style={{ flex: '3', display: 'flex', flexDirection: 'column', width: '75%' }}>
               {/* Table Header */}
               <div style={{ display: 'flex', backgroundColor: '#ADB5BD' }}>
                 <div style={{ flex: '1.5', padding: '16px 24px', fontWeight: '700', fontSize: '18px', fontFamily: 'Helvetica Neue' }}>Role Category</div>
@@ -321,7 +322,7 @@ const Roles = () => {
             </div>
             
             {/* Right side: Standards column */}
-            <div style={{ flex: '1', display: 'flex', flexDirection: 'column', width: '25%'}}>
+            <div className={styles.clmn3} style={{ flex: '1', display: 'flex', flexDirection: 'column', width: '25%'}}>
               {/* Standards Header */}
               <div style={{ padding: '16px 24px', fontWeight: '700', fontSize: '18px', fontFamily: 'Helvetica Neue', backgroundColor: '#ADB5BD' }}>Standards</div>
               
@@ -334,11 +335,12 @@ const Roles = () => {
                 </ul>
               </div>
             </div>
+            </div>
           </div>
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', backgroundColor: '#fff', padding: '60px 0' }}>
-          <h3 style={{ color: '#181818', marginBottom: '16px' }}>{AdvantageData.title}</h3>
-          <p style={{ color: '#181818', marginBottom: '32px' , textAlign: 'center', maxWidth: '793px', fontSize : '16px'}}>{AdvantageData.description}</p>
+          <h3 className={styles.h3mobile1} style={{ color: '#181818', marginBottom: '16px' }}>{AdvantageData.title}</h3>
+          <p className={styles.Pmobile} style={{ color: '#181818', marginBottom: '32px' , textAlign: 'center', maxWidth: '793px', fontSize : '16px'}}>{AdvantageData.description}</p>
           
           <div className={styles.tableSection}>
             <div className={styles.tableWrapper}>

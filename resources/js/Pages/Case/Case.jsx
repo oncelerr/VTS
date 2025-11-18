@@ -32,7 +32,7 @@ const CarouselData = {
     {
       id: 3,
       number: "3",
-      title: "Scenario Expansion",
+      title: "Scenario Expansion", 
       subtitle: "Third Step",
       content: "The trainer introduces variations: \"What if the customer is diabetic?\" \"What if they're hosting a party?\"<br /><br />Participants learn to think beyond the immediate request.<br /><br />This develops adaptive thinking and contextual awareness."
     },
@@ -113,7 +113,7 @@ const Case = () => {
           <img src="../Assets/Rectangle 9533.png" alt="" />
         </div>
         <div className={styles.caseContent}>
-          <h1 style={{ color: '#181818', marginBottom: '24px', width: '1272px', textAlign: 'center' }}>{HeaderData.title}</h1>
+          <h1 className={styles.caseContentH1} style={{ color: '#181818', marginBottom: '24px', width: '1272px', textAlign: 'center' }}>{HeaderData.title}</h1>
           <p style={{ width: '1038px', color: '#181818', fontSize: '18px', textAlign: 'center' }}>
             {HeaderData.description.split('\n\n').map((paragraph, index) => (
               <React.Fragment key={index}>

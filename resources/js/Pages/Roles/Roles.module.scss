@@ -191,67 +191,150 @@
     overflow: hidden;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     font-size: 14px;
-    
-    th, td {
+
+    th,
+    td {
         padding: 48px;
         text-align: left;
         vertical-align: middle;
-        
+
         &:last-child {
             border-right: none;
         }
     }
-    
+
     thead {
         background-color: #111B4D;
         color: white;
-        
+
         th {
             font-weight: 600;
             padding: 32px 48px;
-            
+
             &:first-child {
                 width: 180px;
             }
         }
     }
-    
+
     tbody {
         tr {
             height: 70px;
-            
+
             &:nth-child(odd) {
                 background-color: #0B1233;
                 color: white;
             }
-            
+
             &:nth-child(even) {
                 background-color: #111B4D;
                 color: white;
             }
-            
+
             td {
                 padding: 32px 48px;
             }
         }
     }
-    
-    .firstColumn, .rowTitle {
+
+    .firstColumn,
+    .rowTitle {
         font-weight: 600;
         color: white;
         width: 180px;
     }
-    
+
     // Ensure the table is responsive
     @media (max-width: 1024px) {
         font-size: 13px;
-        
-        th, td {
+
+        th,
+        td {
             padding: 12px 10px;
         }
-        
-        .firstColumn, .rowTitle {
+
+        .firstColumn,
+        .rowTitle {
             width: 150px;
         }
+    }
+}
+
+@media (max-width: 480px) {
+    .rolesSectTop {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .specializedRolesContainer {
+        align-items: flex-start !important;
+        padding-left: 24px !important;
+        padding-right: 24px !important;
+        overflow-x: hidden;
+        width: 100%;
+    }
+
+    .rolesSectTopLeft {
+        width: 312px;
+    }
+
+    .rolesSectTopRight {
+        width: 312px;
+    }
+
+    .rolesSectBottomh3mobile {
+        width: 312px;
+        text-align: center;
+    }
+
+    .rolesSectBottomh3p {
+        width: 312px !important;
+        text-align: center !important;
+    }
+
+    .rolesSectBottomContent {
+        flex-direction: column;
+    }
+
+    .h3mobile {
+        width: 312px;
+        font-size: 36px;
+    }
+
+    .tableSection {
+        padding: 0 !important;
+        display: flex;
+        justify-content: center;
+    }
+
+    .tableWrapper {
+        width: 312px;
+
+    }
+
+    .tableMobile {
+        width: 600px !important;
+        max-width: none !important;
+        min-width: 600px;
+        flex-shrink: 0;
+    }
+
+    .clmn12 {
+        flex: 2 !important;
+    }
+
+    .clmn3 {
+        flex: 2 !important;
+    }
+
+    .h3mobile1 {
+        width: 312px;
+        font-size: 36px;
+        text-align: center !important;
+    }
+
+    .Pmobile {
+        width: 312px;
+        font-size: 16px;
     }
 }

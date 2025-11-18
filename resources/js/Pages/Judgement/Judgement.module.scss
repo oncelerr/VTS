@@ -115,3 +115,79 @@
     width: 332px;
     align-items: center;
 }
+
+@media (max-width: 480px) {
+    .judgementContent {
+        padding: 49px 24px;
+    }
+
+    .judgementContent h1 {
+        width: 312px;
+        font-size: 32px !important;
+        text-align: center;
+    }
+
+    .judgementContent p {
+        width: 312px !important;
+        font-size: 14px !important;
+        text-align: center;
+    }
+
+    .judgementCardsWrp {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(6, 1fr);
+        gap: 24px;
+        width: 312px;
+    }
+
+    .cardContainer {
+        width: 312px;
+        height: 250px;
+    }
+
+    .cardFront, .cardBack {
+        padding: 24px;
+    }
+
+    .cardFront h5 {
+        width: 264px !important;
+        font-size: 18px !important;
+    }
+
+    .cardBack p {
+        font-size: 14px !important;
+    }
+
+    .whyItMattersWrp {
+        margin-top: 48px;
+        gap: 32px;
+    }
+
+    .whyItMattersWrp h3 {
+        width: 312px;
+        font-size: 24px !important;
+        text-align: center;
+    }
+
+    .whyItMatters {
+        flex-direction: column;
+        gap: 32px;
+        width: 312px;
+    }
+
+    .whyItMattersItem {
+        width: 312px;
+    }
+
+    .whyItMattersItem p:nth-child(2) {
+        font-size: 20px !important;
+    }
+
+    .whyItMattersItem p:nth-child(3) {
+        font-size: 14px !important;
+    }
+
+    .divider {
+        display: none;
+    }
+}

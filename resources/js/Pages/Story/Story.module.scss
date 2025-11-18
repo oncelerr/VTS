@@ -63,3 +63,62 @@
     object-fit: cover;
     border-radius: 36px;
 }
+
+@media (max-width: 480px) {
+    .caseContent {
+        padding: 49px 24px;
+    }
+
+    .caseContent h1 {
+        width: 312px;
+        font-size: 32px !important;
+        text-align: center;
+    }
+
+    .caseContent p {
+        width: 312px !important;
+        font-size: 14px !important;
+        text-align: center;
+    }
+
+    .vidWrp {
+        width: 312px;
+        margin-bottom: 48px;
+    }
+
+    .vid {
+        width: 312px !important;
+        height: 175px !important;
+    }
+
+    .storyWrp {
+        width: 312px;
+        gap: 32px;
+    }
+
+    .storyTop {
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    .storyText {
+        width: 312px;
+    }
+
+    .storyText h3 {
+        font-size: 24px !important;
+        text-align: center;
+        margin-bottom: 16px !important;
+    }
+
+    .storyText p {
+        font-size: 14px !important;
+        text-align: center;
+    }
+
+    .storyImg {
+        width: 312px;
+        height: 224px;
+        border-radius: 16px;
+    }
+}

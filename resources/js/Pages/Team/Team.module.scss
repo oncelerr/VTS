@@ -134,3 +134,71 @@
 .cardContent {
     padding: 36px;
 }
+
+@media (max-width: 480px) {
+    .teamCard {
+        padding-top: 49px;
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+
+    .teamCard h1 {
+        width: 312px;
+        font-size: 32px !important;
+        text-align: center;
+    }
+
+    .teamCard p {
+        width: 312px !important;
+        font-size: 14px !important;
+        text-align: center;
+    }
+
+    .cardWrp {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        margin-top: 32px;
+        width: 312px;
+    }
+
+    .card {
+        width: 312px;
+        height: 430px;
+
+        .imgPpl {
+            width: 312px;
+            height: 280px;
+        }
+    }
+
+    .cardContent {
+        padding: 24px;
+    }
+
+    .cardContent h3 {
+        font-size: 20px !important;
+    }
+
+    .cardContent p {
+        font-size: 14px !important;
+    }
+
+    .cardOverlay {
+        padding: 24px;
+    }
+
+    .overlayContent {
+        .overlayName {
+            font-size: 24px;
+        }
+
+        .overlayPosition {
+            font-size: 16px;
+        }
+
+        .overlayDescription {
+            font-size: 14px;
+            max-width: 264px;
+        }
+    }
+}

@@ -15,14 +15,18 @@ const ServicesData = {
   talent: [{
     title: "Talent",
     Point: [
-      { id: 1, 
-        title: "Direct Placement", 
-        subtitle: "Your talent, sourced and delivered.", 
-        content: "We provide end-to-end recruitment for long-term roles, from sourcing to assessment to onboarding. Direct placement ensures you get the right talent embedded directly into your organization, ready to perform from day one."},
-      { id: 2, 
-        title: "Recruitment Partnership (RPO)", 
-        subtitle: "End to End talent requisition", 
-        content: "Recruitment Process Outsourcing (RPO) is a partnership model where Vertical Talent Solution manages all or part of your hiring process — from sourcing and screening to offer management — as an extension of your team. Our RPO model helps companies scale efficiently and reduce hiring costs, and improve talent quality."},
+      {
+        id: 1,
+        title: "Direct Placement",
+        subtitle: "Your talent, sourced and delivered.",
+        content: "We provide end-to-end recruitment for long-term roles, from sourcing to assessment to onboarding. Direct placement ensures you get the right talent embedded directly into your organization, ready to perform from day one."
+      },
+      {
+        id: 2,
+        title: "Recruitment Partnership (RPO)",
+        subtitle: "End to End talent requisition",
+        content: "Recruitment Process Outsourcing (RPO) is a partnership model where Vertical Talent Solution manages all or part of your hiring process — from sourcing and screening to offer management — as an extension of your team. Our RPO model helps companies scale efficiently and reduce hiring costs, and improve talent quality."
+      },
     ],
     button: "Build Your Global Talent",
     image1: "../Assets/ppl.jpg",
@@ -31,14 +35,18 @@ const ServicesData = {
   teams: [{
     title: "Teams",
     Point: [
-      { id: 1, 
-        title: "Global Teams", 
-        subtitle: "Your team, our infrastructure.", 
-        content: "Through our embedded Hire and House service, we make it simple to build and compliantly manage teams in the Philippines. You control day-to-day management, while we provide the local entity, payroll, work visa and immigration support, and HR infrastructure to hire and house your people."},
-      { id: 2, 
-        title: "Managed Teams", 
-        subtitle: "Your outcomes, our responsibility - Your fully managed global teams — built, developed, and scaled with VTS.", 
-        content: "We design, build, and manage entire teams on your behalf. From recruitment and training to operations and performance, we take full ownership so you can focus on outcomes — while we ensure your teams deliver at scale with quality and consistency. "},
+      {
+        id: 1,
+        title: "Global Teams",
+        subtitle: "Your team, our infrastructure.",
+        content: "Through our embedded Hire and House service, we make it simple to build and compliantly manage teams in the Philippines. You control day-to-day management, while we provide the local entity, payroll, work visa and immigration support, and HR infrastructure to hire and house your people."
+      },
+      {
+        id: 2,
+        title: "Managed Teams",
+        subtitle: "Your outcomes, our responsibility - Your fully managed global teams — built, developed, and scaled with VTS.",
+        content: "We design, build, and manage entire teams on your behalf. From recruitment and training to operations and performance, we take full ownership so you can focus on outcomes — while we ensure your teams deliver at scale with quality and consistency. "
+      },
     ],
     button: "Build Your Global Talent",
     image1: "../Assets/ppl.jpg",
@@ -128,7 +136,7 @@ const TableData = {
   ]
 }
 
- 
+
 
 const ServicesContent = () => {
   return (
@@ -138,15 +146,15 @@ const ServicesContent = () => {
           <img src="../Assets/Vector 7.png" alt="" />
         </div>
         <div className={styles.backgroundElement4}>
-          <img 
-            src="../Assets/service-element.png" 
-            alt="Background decoration" 
+          <img
+            src="../Assets/service-element.png"
+            alt="Background decoration"
             className={styles.fullWidthImage}
           />
         </div>
         <div className={styles.talent}>
           <div className={styles.talentLeft}>
-            <h1 style={{ color: '#181818' }}>{ServicesData.talent[0].title}</h1>
+            <h1 className={styles.talentLeftH1} style={{ color: '#181818' }}>{ServicesData.talent[0].title}</h1>
             <hr />
             <h5>{ServicesData.talent[0].Point[0].title}</h5>
             <p style={{ color: '#181818', fontStyle: 'italic', fontSize: '24px' }}>{ServicesData.talent[0].Point[0].subtitle}</p>
@@ -168,8 +176,10 @@ const ServicesContent = () => {
               alt="Foreground talent image"
             />
           </div>
+          <h1 className={styles.talentH1} style={{ color: '#181818' }}>{ServicesData.talent[0].title}</h1>
         </div>
         <div className={styles.teams}>
+          <h1 className={styles.teamsH1} style={{ color: '#181818' }}>{ServicesData.teams[0].title}</h1>
           <div className={styles.teamsRight}>
             <img
               className={styles.teamsRightimg}
@@ -183,7 +193,7 @@ const ServicesContent = () => {
             />
           </div>
           <div className={styles.teamsLeft}>
-            <h1 style={{ color: '#181818' }}>{ServicesData.teams[0].title}</h1>
+            <h1 className={styles.teamsLeftH1} style={{ color: '#181818' }}>{ServicesData.teams[0].title}</h1>
             <hr />
             <h5>{ServicesData.teams[0].Point[0].title}</h5>
             <p style={{ color: '#181818', fontStyle: 'italic', fontSize: '24px' }}>{ServicesData.teams[0].Point[0].subtitle}</p>
@@ -200,8 +210,8 @@ const ServicesContent = () => {
               <thead>
                 <tr>
                   {TableData.headers.map((header) => (
-                    <th 
-                      key={header.id} 
+                    <th
+                      key={header.id}
                       className={header.id === 1 ? styles.firstColumn : undefined}
                     >
                       {header.title}

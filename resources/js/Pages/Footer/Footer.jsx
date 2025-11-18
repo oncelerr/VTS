@@ -85,7 +85,7 @@ const Footer = () => {
                   src={detail.icon} 
                   alt="" 
                 />
-                <p> {detail.text}</p>
+                <p>{detail.text}</p>
               </div>
             ))}
           </div>

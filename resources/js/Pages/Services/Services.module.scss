@@ -12,7 +12,8 @@
     flex-direction: column;
     align-items: center;
     position: relative;
-    height: 588px; /* Ensure minimum height for content */
+    height: 588px;
+    /* Ensure minimum height for content */
 }
 
 .backgroundElement {
@@ -39,7 +40,7 @@
     width: 499px;
     height: 100%;
     z-index: -1;
-    
+
     img {
         width: 100%;
         height: auto;
@@ -69,7 +70,8 @@
     padding-bottom: 145px;
     position: relative;
     gap: 133px;
-    min-height: 100vh; /* Ensure there's enough height for absolute positioning */
+    min-height: 100vh;
+    /* Ensure there's enough height for absolute positioning */
     overflow-y: hidden;
 }
 
@@ -86,13 +88,19 @@
 
 .backgroundElement4 {
     position: absolute;
-    bottom: 0; /* Position at the bottom */
-    left: 0; /* Full width from left edge */
-    right: 0; /* Full width to right edge */
-    width: 100%; /* Full width of parent */
+    bottom: 0;
+    /* Position at the bottom */
+    left: 0;
+    /* Full width from left edge */
+    right: 0;
+    /* Full width to right edge */
+    width: 100%;
+    /* Full width of parent */
     z-index: 0;
-    pointer-events: none; /* Allows clicking through the element */
-    text-align: center; /* Center the image */
+    pointer-events: none;
+    /* Allows clicking through the element */
+    text-align: center;
+    /* Center the image */
 }
 
 @media (min-width: 1441px) {
@@ -102,12 +110,18 @@
 }
 
 .fullWidthImage {
-    display: block; /* Ensures the image is properly positioned */
-    width: 100vw; /* Full viewport width */
-    max-width: none; /* Override any max-width constraints */
-    margin-left: calc(-50vw + 50%); /* Offset to center from any container */
-    object-fit: contain; /* Maintain aspect ratio */
-    position: relative; /* Enable positioning */
+    display: block;
+    /* Ensures the image is properly positioned */
+    width: 100vw;
+    /* Full viewport width */
+    max-width: none;
+    /* Override any max-width constraints */
+    margin-left: calc(-50vw + 50%);
+    /* Offset to center from any container */
+    object-fit: contain;
+    /* Maintain aspect ratio */
+    position: relative;
+    /* Enable positioning */
 }
 
 .talent {
@@ -123,6 +137,14 @@
     flex-direction: column;
     width: 578px;
     gap: 24px;
+}
+
+.talentH1 {
+    display: none;
+}
+
+.teamsH1 {
+    display: none;
 }
 
 .talentRight {
@@ -245,67 +267,157 @@
     overflow: hidden;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     font-size: 14px;
-    
-    th, td {
+
+    th,
+    td {
         padding: 48px;
         text-align: left;
         vertical-align: middle;
-        
+
         &:last-child {
             border-right: none;
         }
     }
-    
+
     thead {
         background-color: #111B4D;
         color: white;
-        
+
         th {
             font-weight: 600;
             padding: 32px 48px;
-            
+
             &:first-child {
                 width: 180px;
             }
         }
     }
-    
+
     tbody {
         tr {
             height: 70px;
-            
+
             &:nth-child(odd) {
                 background-color: #0B1233;
                 color: white;
             }
-            
+
             &:nth-child(even) {
                 background-color: #111B4D;
                 color: white;
             }
-            
+
             td {
                 padding: 32px 48px;
             }
         }
     }
-    
-    .firstColumn, .rowTitle {
+
+    .firstColumn,
+    .rowTitle {
         font-weight: 600;
         color: white;
         width: 180px;
     }
-    
+
     // Ensure the table is responsive
     @media (max-width: 1024px) {
         font-size: 13px;
-        
-        th, td {
+
+        th,
+        td {
             padding: 12px 10px;
         }
-        
-        .firstColumn, .rowTitle {
+
+        .firstColumn,
+        .rowTitle {
             width: 150px;
         }
+    }
+}
+
+@media (max-width: 480px) {
+    .talent {
+        flex-direction: column-reverse;
+        gap: 24px;
+    }
+
+    .talentRight {
+        width: 312px;
+        height: 324px;
+        margin-left: 0;
+    }
+
+    .talentLeftH1 {
+        display: none;
+    }
+
+    .talentH1 {
+        display: flex;
+        font-size: 32px;
+        text-align: left;
+        width: 312px;
+    }
+
+    .talentRightimg:first-child {
+        width: 234.541px !important;
+        height: 217.853px !important;
+        top: 0px;
+        left: 0px;
+        z-index: 1;
+    }
+
+    .talentRightimg:last-child {
+        width: 234.541px !important;
+        height: 217.853px !important;
+        top: 100px;
+        left: 70px;
+        z-index: 2;
+    }
+
+    .talentLeft {
+        width: 312px;
+    }
+
+    .teams {
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    .teamsRight {
+        width: 312px;
+        height: 324px;
+        margin-left: 0;
+    }
+
+    .teamsLeftH1 {
+        display: none;
+    }
+
+    .teamsH1 {
+        display: flex;
+        font-size: 32px;
+        text-align: left;
+        width: 312px;
+    }
+
+    .teamsRightimg:first-child {
+        width: 234.541px !important;
+        height: 217.853px !important;
+        top: 0px;
+        left: 0px;
+        z-index: 1;
+    }
+
+    .teamsRightimg:last-child {
+        width: 234.541px !important;
+        height: 217.853px !important;
+        top: 100px;
+        left: 70px;
+        z-index: 2;
+    }
+
+    .teamsLeft {
+        width: 312px;
     }
 }

@@ -212,7 +212,7 @@ const Approach = () => {
               </div>
             </div>
 
-            <div style={{ height: '156px', width: '1px', backgroundColor: '#DEE2E6' }} />
+            <div className={styles.hrMoble} style={{ height: '156px', width: '1px', backgroundColor: '#DEE2E6' }} />
 
             {/* VTS Model Side */}
             <div className={styles.comparisonSide}>

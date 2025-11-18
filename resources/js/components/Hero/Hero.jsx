@@ -23,8 +23,8 @@ const Hero = ({ HeroData }) => {
         </div>
         <div className={styles.heroContent}>
           <HollowBadge name={HeroData.badge} color="#E9ECEF" />
-          <h1>{HeroData.title} <span style={{ fontWeight: '300', fontStyle: 'italic' }}>{HeroData.italicTitle}</span></h1>
-          <p dangerouslySetInnerHTML={{ __html: HeroData.content }}></p>
+          <h1 className={styles.heroH1}>{HeroData.title} <span style={{ fontWeight: '300', fontStyle: 'italic' }}>{HeroData.italicTitle}</span></h1>
+          <p className={styles.heroP} dangerouslySetInnerHTML={{ __html: HeroData.content }}></p>
           {HeroData.button && (
             <SolidBtn style={{ marginTop: '24px' }} name={HeroData.button} color="#1C2D80" />
           )}

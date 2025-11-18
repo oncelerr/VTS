@@ -121,8 +121,24 @@ const Hero = () => {
           <h1 className={styles.h1}>{HeroData.name} <span className={styles.span}>{HeroData.span}</span></h1>
           <p className={styles.p}>{HeroData.p}</p>
           <div className={styles.btns}>
-            <SolidBtn name={HeroData.solidBtn} path={'/'} color="#1C2D80" />
-            <HollowBtn name={HeroData.hollowBtn} path={'/'} color={'#fff'}/>
+            <SolidBtn
+              name={HeroData.solidBtn}
+              path={'/'}
+              color="#1C2D80"
+              style={{
+                width: window.innerWidth <= 480 ? '312px !important' : 'fit-content',
+                textAlign: 'center'
+              }}
+            />
+            <HollowBtn
+              name={HeroData.hollowBtn}
+              path={'/'}
+              color={'#fff'}
+              style={{
+                width: window.innerWidth <= 480 ? '312px !important' : 'fit-content',
+                textAlign: 'center !important'
+              }}
+            />
           </div>
         </div>
         <div className={styles.right}>
@@ -193,9 +209,9 @@ const AboutUs = () => {
   return (
     <>
       <div className={styles.aboutWrp}>
-        <h1>{AboutData.title} <span className={styles.span}>{AboutData.span}</span></h1>
+        <h1 className={styles.aboutH1}>{AboutData.title} <span className={styles.span}>{AboutData.span}</span></h1>
         <p className={styles.aboutp} dangerouslySetInnerHTML={{ __html: AboutData.subtitle }}></p>
-        <HollowBtn name={HeroData.hollowBtn} path={'/'} color={'#fff'}/>
+        <HollowBtn name={HeroData.hollowBtn} path={'/'} color={'#fff'} />
       </div>
     </>
   );
@@ -219,11 +235,10 @@ const ThePSP = () => {
     <>
       <div className={styles.pspWrp}>
         <div className={styles.pspDivider}>
-          <h2>{AboutPSP.titleBelieve}</h2>
+          <h2 className={styles.titleBelieve}>{AboutPSP.titleBelieve}</h2>
           <p className={styles.pspP} dangerouslySetInnerHTML={{ __html: AboutPSP.contentBelieve }}></p>
         </div>
         <div className={styles.pspVr}>
-
         </div>
         <div className={styles.pspDivider}>
           <div className={styles.psp}>
@@ -250,7 +265,7 @@ const WhyUs = () => {
       <div className={styles.whyUsWrp}>
         <div className={styles.whyUsTop}>
           <HollowBadge name="Why Choose Us" color="#213699" />
-          <h3>Why Us – <span className={styles.whyUsSpan}>Our Secret Sauce</span></h3>
+          <h3 className={styles.whyUsH3}>Why Us – <span className={styles.whyUsSpan}>Our Secret Sauce</span></h3>
           <p className={styles.whyUsP}>We make impact measurable and practical by fixing remote work  at its design.</p>
         </div>
         <div className={styles.whyUsBottom}>
@@ -279,6 +294,7 @@ const TopTalent = () => {
   return (
     <>
       <div className={styles.tTWrp}>
+        <h3 className={styles.tTMobileTitle}>{TopTalentData.title}</h3>
         <div className={styles.tTLeft}>
           <div className={styles.Square} />
           <div className={styles.collage}>
@@ -293,7 +309,7 @@ const TopTalent = () => {
           </div>
         </div>
         <div className={styles.tTRight}>
-          <h3>{TopTalentData.title}</h3>
+          <h3 className={styles.tTDesktopTitle}>{TopTalentData.title}</h3>
           <h5>{TopTalentData.subtitle}</h5>
           <div>
             <p className={styles.tTRightp}><img src="/Assets/check-circle.svg" alt="" />{TopTalentData.checks[0]}</p>
@@ -357,21 +373,32 @@ const VTSResult = () => {
         </div>
         <div className={styles.vtsResultHr} />
         <div className={styles.vtsResultBottom}>
+          <div className={styles.vtsResultMobileHeader}>
+            <h3 className={styles.vtsResultMobileTitle}>{VTSResultData.bottom[0].title}<span style={{ fontWeight: '300', fontStyle: 'italic' }}> {VTSResultData.bottom[0].titleItalic}</span></h3>
+            <p className={styles.vtsResultMobileP}>{VTSResultData.bottom[0].p}</p>
+          </div>
           <div className={styles.vtsResultBottomLeft}>
             <img style={{ width: '441px', height: '483px', objectFit: 'cover', borderRadius: '16px', border: '1px solid #fff' }} src={VTSResultData.bottom[0].img} alt="" />
           </div>
           <div className={styles.vtsResultBottomRight}>
-            <h3 style={{ color: '#fff' }}>{VTSResultData.bottom[0].title}<span style={{ color: '#fff', fontWeight: '300', fontStyle: 'italic' }}> {VTSResultData.bottom[0].titleItalic}</span></h3>
-            <p style={{ color: '#fff' }}>{VTSResultData.bottom[0].p}</p>
-            <h6>{VTSResultData.bottom[0].bulletTitle}</h6>
+            <h3 className={styles.vtsResultDesktopTitle} style={{ color: '#fff' }}>{VTSResultData.bottom[0].title}<span style={{ color: '#fff', fontWeight: '300', fontStyle: 'italic' }}> {VTSResultData.bottom[0].titleItalic}</span></h3>
+            <p className={styles.vtsResultDesktopP} style={{ color: '#fff' }}>{VTSResultData.bottom[0].p}</p>
+            <h6 className={styles.vtsResultH6}>{VTSResultData.bottom[0].bulletTitle}</h6>
             <ul style={{ paddingLeft: '20px' }}>
               {VTSResultData.bottom[0].bullets.map((bullet, index) => (
                 <li className={styles.vtsResultbullets} key={index} >{bullet}</li>
               ))}
             </ul>
-            <p>{VTSResultData.bottom[0].closingRemarks}</p>
-            <p style={{ fontStyle: 'italic' }}>{VTSResultData.bottom[0].followUpQuestion}</p>
-            <SolidBtn name={VTSResultData.button} path={'/'} color="#213699" />
+            <p className={styles.vtsResultP}>{VTSResultData.bottom[0].closingRemarks}</p>
+            <p className={styles.vtsResultP} style={{ fontStyle: 'italic' }}>{VTSResultData.bottom[0].followUpQuestion}</p>
+            <SolidBtn
+              style={{
+                width: window.innerWidth <= 480 ? 'calc(100% - 48px)' : 'fit-content'
+              }}
+              name={VTSResultData.button}
+              path={'/'}
+              color="#213699"
+            />
           </div>
         </div>
       </div>
@@ -384,9 +411,14 @@ const CTA = () => {
     <>
       <div className={styles.CTAWrp}>
         <HollowBadge name="The Future of Hiring Starts Here" color="#213699" />
-        <h1 style={{ color: '#181818', textAlign: 'center', width: '947px', }}>Ready to build your <span style={{ color: '#111B4D' }}>global team</span> <span style={{ fontWeight: '300', fontStyle: 'italic' }}>in the Philippines?</span></h1>
+        <h1 className={styles.CTAh1} style={{ color: '#181818', textAlign: 'center', width: '947px', }}>Ready to build your <span style={{ color: '#111B4D' }}>global team</span> <span style={{ fontWeight: '300', fontStyle: 'italic' }}>in the Philippines?</span></h1>
         <div className={styles.CTAButtonWrp}>
-          <SolidBtn name="Book a Call" path={'/'} color="#213699" />
+          <SolidBtn
+            style={{
+              width: window.innerWidth <= 480 ? 'calc(100% - 48px)' : 'fit-content',
+              textAlign: window.innerWidth <= 480 ? 'center' : 'left'
+            }}
+            name="Book a Call" path={'/'} color="#213699" />
           <HollowBtn name="Request a Proposal" path={'/'} color="#181818" />
         </div>
       </div>
