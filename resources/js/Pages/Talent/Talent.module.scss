@@ -104,6 +104,11 @@
     text-align: center;
 }
 
+.sectionh3mobile {
+    display: none;
+}
+
+
 @media (max-width: 480px) {
     .heroWrp {
         justify-content: center;

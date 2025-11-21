@@ -51,14 +51,10 @@
     gap: 24px;
 }
 
-.sectionh3desktop {
-    display: none;
-}
-
 .talentContentWrp {
     width: 100%;
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 91.5px 0;
@@ -70,8 +66,8 @@
     justify-content: center;
     gap: 123px;
     width: 100%;
-}   
-    
+}
+
 .sectionContent {
     width: 619px;
     display: flex;
@@ -107,6 +103,10 @@
     margin: auto 0;
 }
 
+.sectionh3mobile {
+    display: none;
+}
+
 @media (max-width: 480px) {
     .heroWrp {
         justify-content: center;
@@ -114,6 +114,10 @@
         padding: 49px 24px;
         width: 100%;
         overflow: hidden;
+    }
+
+    .sectionh3mobile {
+        display: block;
     }
 
     .heroContent {
@@ -128,7 +132,7 @@
             text-align: center;
             font-size: 40px;
         }
-        
+
         p {
             text-align: center;
             font-size: 14px;
@@ -139,11 +143,11 @@
         width: 312px;
         flex-direction: column;
         gap: 24px;
-        
+
         &:nth-child(odd) {
             flex-direction: column;
         }
-        
+
         &:nth-child(even) {
             flex-direction: column-reverse;
         }
