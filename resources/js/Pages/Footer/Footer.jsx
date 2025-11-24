@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import styles from './Footer.module.scss';
 import ContactUsBTN from '../../components/ContactUsButton/ContactUsBTN';
 
@@ -20,7 +21,8 @@ const FooterData = {
       { id: 1, text: 'Home', url: '/' },
       { id: 2, text: 'Our Approach', url: '/our-approach' },
       { id: 3, text: 'Services', url: '/services' },
-      { id: 4, text: 'Roles', url: '/roles' }
+      { id: 4, text: 'Roles', url: '/roles' },
+      { id: 5, text: 'CMS', url: '/cms' }
     ]
   },
   contact: {
@@ -50,6 +52,8 @@ const FooterData = {
 }
 
 const Footer = () => {
+  const navigate = useNavigate();
+
   return (
     <>
       <div className={styles.FooterWrp}>
@@ -70,7 +74,7 @@ const Footer = () => {
           <div className={styles.FooterRightLinks}>
             <p style={{ marginBottom: '16px' }}>{FooterData.quickLinks.title}</p>
             {FooterData.quickLinks.links.map((link) => (
-              <p key={link.id}>{link.text}</p>
+              <p onClick={() => navigate(link.url)} key={link.id} style={{ cursor: 'pointer' }}>{link.text}</p>
             ))}
           </div>
           <div className={styles.FooterRightContacts}>

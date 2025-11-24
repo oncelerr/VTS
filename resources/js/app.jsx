@@ -9,7 +9,7 @@ import Navbar from './Pages/Navbar/Navbar';
 import Footer from './Pages/Footer/Footer';
 import Talent from './Pages/Talent/Talent';
 import Teams from './Pages/Teams/Teams';
-import Roles from './Pages/Roles/Roles';    
+import Roles from './Pages/Roles/Roles';
 import Approach from './Pages/Approach/Approach';
 import Judgement from './Pages/Judgement/Judgement';
 import Case from './Pages/Case/Case';
@@ -18,10 +18,19 @@ import Story from './Pages/Story/Story';
 import Team from './Pages/Team/Team'
 import Contact from './Pages/Contact/Contact';
 
+
 // Component to handle animated route transitions
 function AnimatedRoutes() {
     const location = useLocation();
-    
+
+    const ExternalRedirect = ({ url }) => {
+        React.useEffect(() => {
+            window.location.href = url;
+        }, [url]);
+
+        return <div></div>;
+    };
+
     return (
         <AnimatePresence mode="wait">
             <Routes location={location} key={location.pathname}>
@@ -36,6 +45,14 @@ function AnimatedRoutes() {
                 <Route path="/our-story" element={<Inner><Story /></Inner>} />
                 <Route path="/our-team" element={<Inner><Team /></Inner>} />
                 <Route path="/contact" element={<Inner><Contact /></Inner>} />
+                <Route
+                    path="/cms"
+                    element={
+                        <Inner>
+                            <ExternalRedirect url="https://cms.hivecore.live/login" />
+                        </Inner>
+                    }
+                />
             </Routes>
         </AnimatePresence>
     );

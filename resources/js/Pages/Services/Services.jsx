@@ -201,7 +201,7 @@ const ServicesContent = () => {
             <h5>{ServicesData.teams[0].Point[1].title}</h5>
             <p style={{ color: '#181818', fontStyle: 'italic', fontSize: '24px' }}>{ServicesData.teams[0].Point[1].subtitle}</p>
             <p style={{ color: '#181818' }}>{ServicesData.teams[0].Point[1].content}</p>
-            <SolidBtn style={{ marginTop: '24px', width: '100% !important' }} name={ServicesData.teams[0].button} color="#1C2D80" />
+            <SolidBtn style={{ marginTop: '24px', width: '100% !important', textAlign: 'center !important' }} name={ServicesData.teams[0].button} color="#1C2D80" />
           </div>
         </div>
         <div className={styles.tableSection}>
