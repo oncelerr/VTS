@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>VTS API Test</title>
+</head>
+<body>
+    <h1>VTS API Test</h1>
+    <div id="results"></div>
+
+    <script>
+        const API_BASE_URL = 'http://localhost:8000/api';
+        const API_KEY = 'vts_cms_api_key_2025_secure_token';
+
+        async function testAPI() {
+            const results = document.getElementById('results');
+            
+            try {
+                // Test health endpoint
+                console.log('Testing health endpoint...');
+                const healthResponse = await fetch(`${API_BASE_URL}/health`);
+                const healthData = await healthResponse.json();
+                results.innerHTML += `<p><strong>Health Check:</strong> ${JSON.stringify(healthData)}</p>`;
+
+                // Test hero section
+                console.log('Testing hero section...');
+                const heroResponse = await fetch(`${API_BASE_URL}/homepage/section/hero`, {
+                    headers: {
+                        'X-API-Key': API_KEY,
+                        'Content-Type': 'application/json',
+                    },
+                });
+                const heroData = await heroResponse.json();
+                results.innerHTML += `<p><strong>Hero Section:</strong> ${JSON.stringify(heroData, null, 2)}</p>`;
+
+            } catch (error) {
+                results.innerHTML += `<p><strong>Error:</strong> ${error.message}</p>`;
+                console.error('API test error:', error);
+            }
+        }
+
+        // Run test when page loads
+        testAPI();
+    </script>
+</body>
+</html>

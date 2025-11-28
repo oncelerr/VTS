@@ -236,7 +236,7 @@ const Roles = () => {
             </div>
             <div className={styles.rolesSectTopRight}>
               {RolesData.map((roleCategory, categoryIndex) => (
-                <div key={categoryIndex} className={styles.rolesDropDown} style={{ marginBottom: '16px' }}>
+                <div key={categoryIndex} className={styles.rolesDropDown}>
                   <div
                     style={{ display: 'flex', gap: '16px', padding: '16px 22px', cursor: 'pointer' }}
                     onClick={() => setActiveDropdown(activeDropdown === categoryIndex ? null : categoryIndex)}

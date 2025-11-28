@@ -288,6 +288,17 @@
     display: flex;
     gap: 64px;
     margin-bottom: 84px;
+    
+    .text {
+        ul {
+            margin-left: 24px;
+            padding-left: 0;
+        }
+        
+        li {
+            margin-left: 24px;
+        }
+    }
 }
 
 .table {

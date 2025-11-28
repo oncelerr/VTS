@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VTS Image Upload Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; }
+        input, select { width: 100%; padding: 8px; margin-bottom: 10px; border: 1px solid #ddd; border-radius: 4px; }
+        button { background: #007cba; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; }
+        button:hover { background: #005a87; }
+        .result { margin-top: 20px; padding: 15px; border-radius: 4px; }
+        .success { background: #d4edda; border: 1px solid #c3e6cb; color: #155724; }
+        .error { background: #f8d7da; border: 1px solid #f5c6cb; color: #721c24; }
+        .image-preview { max-width: 200px; margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <h1>VTS Image Upload Test</h1>
+    
+    <form id="uploadForm">
+        <div class="form-group">
+            <label for="image">Select Image:</label>
+            <input type="file" id="image" name="image" accept="image/*" required>
+            <img id="preview" class="image-preview" style="display: none;">
+        </div>
+        
+        <div class="form-group">
+            <label for="section_name">Section Name (optional):</label>
+            <select id="section_name" name="section_name">
+                <option value="">-- Don't save to database --</option>
+                <option value="collage_images">Collage Images</option>
+                <option value="marquee_images">Marquee Images</option>
+                <option value="hero">Hero Images</option>
+                <option value="custom">Custom Section</option>
+            </select>
+        </div>
+        
+        <div class="form-group" id="customSectionGroup" style="display: none;">
+            <label for="custom_section">Custom Section Name:</label>
+            <input type="text" id="custom_section" name="custom_section" placeholder="Enter custom section name">
+        </div>
+        
+        <div class="form-group">
+            <label for="image_type">Image Type (optional):</label>
+            <input type="text" id="image_type" name="image_type" placeholder="e.g., collage, hero, marquee">
+        </div>
+        
+        <div class="form-group">
+            <label>
+                <input type="checkbox" id="save_to_db" name="save_to_db"> Save to Database
+            </label>
+        </div>
+        
+        <button type="submit">Upload Image</button>
+    </form>
+    
+    <div id="result"></div>
+
+    <script>
+        const API_BASE_URL = 'http://localhost:8000/api';
+        const API_KEY = 'vts_cms_api_key_2025_secure_token';
+        
+        // Preview image when selected
+        document.getElementById('image').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const preview = document.getElementById('preview');
+                    preview.src = e.target.result;
+                    preview.style.display = 'block';
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+        
+        // Show/hide custom section input
+        document.getElementById('section_name').addEventListener('change', function(e) {
+            const customGroup = document.getElementById('customSectionGroup');
+            if (e.target.value === 'custom') {
+                customGroup.style.display = 'block';
+            } else {
+                customGroup.style.display = 'none';
+            }
+        });
+        
+        // Handle form submission
+        document.getElementById('uploadForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData();
+            const imageFile = document.getElementById('image').files[0];
+            
+            if (!imageFile) {
+                showResult('Please select an image file.', 'error');
+                return;
+            }
+            
+            formData.append('image', imageFile);
+            
+            const sectionName = document.getElementById('section_name').value;
+            if (sectionName) {
+                if (sectionName === 'custom') {
+                    const customSection = document.getElementById('custom_section').value;
+                    if (customSection) {
+                        formData.append('section_name', customSection);
+                    }
+                } else {
+                    formData.append('section_name', sectionName);
+                }
+            }
+            
+            const imageType = document.getElementById('image_type').value;
+            if (imageType) {
+                formData.append('image_type', imageType);
+            }
+            
+            const saveToDb = document.getElementById('save_to_db').checked;
+            if (saveToDb) {
+                formData.append('save_to_db', '1');
+            }
+            
+            try {
+                showResult('Uploading image...', 'info');
+                
+                const response = await fetch(`${API_BASE_URL}/homepage/upload-image`, {
+                    method: 'POST',
+                    headers: {
+                        'X-API-Key': API_KEY
+                    },
+                    body: formData
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    let message = `✅ Image uploaded successfully!<br>`;
+                    message += `📁 Filename: ${result.data.filename}<br>`;
+                    message += `🔗 Path: ${result.data.path}<br>`;
+                    message += `🌐 URL: <a href="${result.data.full_url}" target="_blank">${result.data.full_url}</a><br>`;
+                    message += `📏 Size: ${(result.data.size / 1024).toFixed(2)} KB<br>`;
+                    
+                    if (result.data.section_updated) {
+                        message += `💾 Saved to database section: ${result.data.section_updated}<br>`;
+                        message += `🆔 Database entry ID: ${result.data.database_entry.id}`;
+                    }
+                    
+                    showResult(message, 'success');
+                    
+                    // Reset form
+                    document.getElementById('uploadForm').reset();
+                    document.getElementById('preview').style.display = 'none';
+                } else {
+                    showResult(`❌ Upload failed: ${result.message}`, 'error');
+                }
+                
+            } catch (error) {
+                showResult(`❌ Error: ${error.message}`, 'error');
+            }
+        });
+        
+        function showResult(message, type) {
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = message;
+            resultDiv.className = `result ${type}`;
+        }
+    </script>
+</body>
+</html>

@@ -51,7 +51,7 @@
     }
 }
 
-.cardFront, .cardBack {
+.cardFront {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -67,6 +67,27 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+.cardBack {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 37px 38px;
+    background-color: #0B1233;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    
+    p {
+        br {
+            margin: 4px 0;
+        }
+    }
+}
+
 .cardFront {
     gap: 32px;
 }
@@ -78,7 +99,6 @@
     p {
         color: #fff;
         font-size: 16px;
-        line-height: 1.5;
         text-align: center;
     }
 }

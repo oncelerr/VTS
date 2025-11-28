@@ -14,37 +14,37 @@ const CardsData = [
     id: 1,
     title: "Socratic Method Training",
     icon: "/Assets/headside.svg",
-    description: "Our Socratic Method approach uses guided questioning to help team members discover insights rather than memorize procedures. This builds critical thinking skills and deeper understanding of complex situations."
+    description: "One-on-one coaching and group sessions based on dialogue, not debate.<br/><br/>Agents learn to generate meaning together rather than “win” discussions."
   },
   {
     id: 2,
-    title: "Reflective Practice",
-    icon: "/Assets/headside.svg",
-    description: "Team members regularly analyze their own decision-making processes, identifying patterns and opportunities for growth. This builds metacognition—the ability to think about one's own thinking."
+    title: "Scenario-Based Practice",
+    icon: "/Assets/man.svg",
+    description: "Real-world workflows turned into live simulations (e.g., customer requests, problem resolution).<br/><br/>Quick-response rounds (30 seconds) force agility and authentic judgment."
   },
   {
     id: 3,
-    title: "Communal Learning",
-    icon: "/Assets/headside.svg",
-    description: "Knowledge sharing happens through structured peer dialogue rather than top-down instruction. This creates a culture where insights emerge from collective experience and diverse perspectives."
+    title: "Communal Validation (The “WHY” Method)",
+    icon: "/Assets/why.svg",
+    description: "Peer groups score responses 1–10 and give one-sentence feedback.<br/><br/>Quality emerges not from a trainer dictating answers, but from collective insight and validation."
   },
   {
     id: 4,
-    title: "Scenario-Based Training",
-    icon: "/Assets/headside.svg",
-    description: "Instead of abstract rules, we train through real-world scenarios that require judgment and contextual understanding. This builds the ability to navigate ambiguity and make nuanced decisions."
+    title: "Progressive Discovery of Higher Standards",
+    icon: "/Assets/alert.svg",
+    description: "Trainers push participants to reach the next level of judgment without prescribing it.<br/><br/>“Aha moments” happen when they independently discover better judgment."
   },
   {
     id: 5,
-    title: "Emotional Intelligence",
-    icon: "/Assets/headside.svg",
-    description: "We develop awareness of emotional responses and their impact on decision-making. This builds resilience and the ability to maintain judgment even in high-pressure situations."
+    title: "Four-Quadrant Development",
+    icon: "/Assets/plane.svg",
+    description: "We track both interior and exterior development, at the individual and communal level.<br/><br/>Success is measured across four KPI quadrants: skills, mindset, behavior, and community impact."
   },
   {
     id: 6,
-    title: "Continuous Feedback Loops",
-    icon: "/Assets/headside.svg",
-    description: "Regular, structured feedback sessions focus on thought process rather than just outcomes. This creates a growth mindset where team members constantly refine their judgment capabilities."
+    title: "Vision Logic Outcomes",
+    icon: "/Assets/vision.svg",
+    description: "At the highest level, agents not only resolve issues but dissect underlying needs.<br/><br/>This unlocks creative, multi-dimensional solutions aligned with customer experience, loyalty, and long-term value creation."
   }
 ];
 
@@ -101,7 +101,9 @@ const Judgement = () => {
                     <h5 style={{ width: '332px', textAlign: 'center', color: '#fff' }}>{card.title}</h5>
                   </div>
                   <div className={styles.cardBack}>
-                    <p>{card.description}</p>
+                    <img style={{ height: '32px', marginBottom: '24px' }} src={card.icon} alt="" />
+                    <h5 style={{ width: '332px', color: '#fff', fontSize: '24px', marginBottom: '16px' }}>{card.title}</h5>
+                    <p dangerouslySetInnerHTML={{ __html: card.description }} style={{textAlign: 'left', fontSize: '16px'}}></p>
                   </div>
                 </div>
               </div>

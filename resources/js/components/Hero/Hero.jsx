@@ -26,7 +26,7 @@ const Hero = ({ HeroData }) => {
           <h1 className={styles.heroH1}>{HeroData.title} <span style={{ fontWeight: '300', fontStyle: 'italic' }}>{HeroData.italicTitle}</span></h1>
           <p className={styles.heroP} dangerouslySetInnerHTML={{ __html: HeroData.content }}></p>
           {HeroData.button && (
-            <SolidBtn style={{ marginTop: '24px' }} name={HeroData.button} color="#1C2D80" />
+            <SolidBtn style={{ marginTop: '24px'}} name={HeroData.button} color="#1C2D80" />
           )}
         </div>
       </div>

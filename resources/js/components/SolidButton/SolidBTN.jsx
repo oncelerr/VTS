@@ -3,10 +3,12 @@ import { useNavigate } from "react-router-dom";
 
 const SolidBtn = ({name, path, color, style}) => {
 	const navigate = useNavigate();
+	const buttonColor = color || "#1C2D80";
+	
 	return (
 		<button
 			style={{ 
-				backgroundColor: color || "#1C2D80", 
+				backgroundColor: buttonColor, 
 				color: "#fff", 
 				padding: "18px 24px", 
 				border: "none", 
@@ -16,7 +18,18 @@ const SolidBtn = ({name, path, color, style}) => {
 				fontSize: "16px",
 				cursor: "pointer",
 				width: "fit-content",
+				transition: "background-color 0.3s ease",
 				...style // Spread custom styles
+			}}
+			onMouseEnter={(e) => {
+				if (buttonColor === "#1C2D80") {
+					e.target.style.backgroundColor = "#162466";
+				} else if (buttonColor === "#181818") {
+					e.target.style.backgroundColor = "#162466";
+				}
+			}}
+			onMouseLeave={(e) => {
+				e.target.style.backgroundColor = buttonColor;
 			}}
 			onClick={() => navigate(path)}>
 				{name}
