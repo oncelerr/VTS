@@ -18,7 +18,7 @@ const Story = () => {
         </div>
         <div className={styles.caseContent}>
           <h1 style={{ color: '#181818', marginBottom: '24px', width: '1272px', textAlign: 'center' }}>{HeaderData.title}</h1>
-          <p style={{ width: '1038px', color: '#181818', fontSize: '18px', textAlign: 'center', marginBottom: '84px' }}>
+          <p className={styles.caseContentP} style={{ width: '1038px', color: '#181818', fontSize: '18px', textAlign: 'center', marginBottom: '84px' }}>
             {HeaderData.description.split('\n\n').map((paragraph, index) => (
               <React.Fragment key={index}>
                 {index > 0 && <><br /><br /></>}

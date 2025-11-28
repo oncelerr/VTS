@@ -147,7 +147,7 @@
         text-align: center;
     }
 
-    .judgementContent p {
+    .judgementContentP {
         width: 312px !important;
         font-size: 14px !important;
         text-align: center;
@@ -167,6 +167,7 @@
 
     .cardFront, .cardBack {
         padding: 24px;
+        width: 312px;
     }
 
     .cardFront h5 {
@@ -174,8 +175,14 @@
         font-size: 18px !important;
     }
 
+    .cardBack h5 {
+        width: 264px !important;
+        font-size: 16px !important;
+    }
+
     .cardBack p {
-        font-size: 14px !important;
+        font-size: 12px !important;
+        width: 264px !important;
     }
 
     .whyItMattersWrp {
@@ -195,16 +202,20 @@
         width: 312px;
     }
 
-    .whyItMattersItem {
+    .whyItMattersItemp {
         width: 312px;
     }
 
-    .whyItMattersItem p:nth-child(2) {
+    .whyItMattersItemp p:nth-child(2) {
         font-size: 20px !important;
     }
 
-    .whyItMattersItem p:nth-child(3) {
+    .whyItMattersItemp p:nth-child(3) {
         font-size: 14px !important;
+    }
+
+    .whyItMattersItemC {
+        width: 70px !important;
     }
 
     .divider {

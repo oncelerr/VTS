@@ -6,12 +6,14 @@ import HollowBadge from '../../components/HollowBadge/HollowBadge';
 import Spinner from '../../components/Spinner/Spinner';
 
 // API Configuration
-const API_BASE_URL = 'http://localhost:8000/api';
-const API_KEY = 'vts_cms_api_key_2025_secure_token'; // This should match your .env VTS_API_KEY
+const API_BASE_URL = 'https://test-vts.site/api';
+const API_KEY = 'vts_cms_api_key_2025_secure_token';
 
 // API Service
 const apiService = {
   async fetchSection(sectionName) {
+    console.log(API_BASE_URL);
+
     try {
       const response = await fetch(`${API_BASE_URL}/homepage/section/${sectionName}`, {
         headers: {
@@ -392,7 +394,12 @@ const VTSResult = ({ data }) => {
           <div className={styles.vtsResultTopLeft}>
             <h3 style={{ color: "#fff" }}>{data.top[0].title} <span className={styles.vtsResultTopLeftItalic}>{data.top[0].titleItalic}</span></h3>
             <p dangerouslySetInnerHTML={{ __html: data.top[0].content }}></p><p className={styles.vtsResultTopLeftItalic}>{data.top[0].proof}</p>
-            <SolidBtn name={data.top[0].button} path={'/'} color="#1C2D80" />
+            <SolidBtn
+            style={{
+              width: window.innerWidth <= 480 ? '312px' : 'fit-content',
+              textAlign: window.innerWidth <= 480 ? 'center' : 'left'
+            }}
+             name={data.top[0].button} path={'/'} color="#1C2D85" />
           </div>
           <div className={styles.vtsResultTopRight}>
             <div className={styles.vtsResultTopRightTop}>
@@ -448,7 +455,7 @@ const VTSResult = ({ data }) => {
             <p className={styles.vtsResultP} style={{ fontStyle: 'italic' }}>{data.bottom[0].followUpQuestion}</p>
             <SolidBtn
               style={{
-                width: window.innerWidth <= 480 ? 'calc(100% - 48px)' : 'fit-content'
+                width: window.innerWidth <= 480 ? '312px' : 'fit-content'
               }}
               name={data.button}
               path={'/'}
@@ -470,7 +477,7 @@ const CTA = () => {
         <div className={styles.CTAButtonWrp}>
           <SolidBtn
             style={{
-              width: window.innerWidth <= 480 ? 'calc(100% - 48px)' : 'fit-content',
+              width: window.innerWidth <= 480 ? '312px' : 'fit-content',
               textAlign: window.innerWidth <= 480 ? 'center' : 'left'
             }}
             name="Book a Call" path={'/'} color="#1C2D80" />

@@ -216,7 +216,7 @@ const Approach = () => {
 
             {/* VTS Model Side */}
             <div className={styles.comparisonSide}>
-              <div style={{ width: '77px', display: 'flex', flexDirection: 'column', gap: '32px', alignItems: 'center' }}>
+              <div style={{ width: '77px', display: 'flex', flexDirection: 'column', gap: '19px', alignItems: 'center' }}>
                 <div className={`${styles.comparisonIcon} ${styles.vts}`}>
                   <img src="/Assets/bullseye.svg" alt="VTS Model" width="40" height="35" />
                 </div>

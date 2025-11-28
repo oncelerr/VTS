@@ -443,6 +443,7 @@
         flex-direction: column;
         gap: 16px;
         width: 98.2px !important;
+        justify-content: center;
 
         &:nth-child(1) {
             flex-direction: column-reverse;

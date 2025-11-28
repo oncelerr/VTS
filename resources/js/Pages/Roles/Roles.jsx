@@ -238,10 +238,10 @@ const Roles = () => {
               {RolesData.map((roleCategory, categoryIndex) => (
                 <div key={categoryIndex} className={styles.rolesDropDown}>
                   <div
-                    style={{ display: 'flex', gap: '16px', padding: '16px 22px', cursor: 'pointer' }}
+                    style={{ display: 'flex', gap: '16px', padding: '16px 22px', cursor: 'pointer', height: 'fit-content', justifyContent: 'center', alignItems: 'center' }}
                     onClick={() => setActiveDropdown(activeDropdown === categoryIndex ? null : categoryIndex)}
                   >
-                    <img style={{ width: '24px' }} src={roleCategory.img} alt="" />
+                    <img style={{ width: '24px', maxHeight: '24px' }} src={roleCategory.img} alt="" />
                     <p style={{ color: '#181818' }}>{roleCategory.title}</p>
                     <img
                       style={{

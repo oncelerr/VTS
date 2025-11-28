@@ -230,6 +230,10 @@
 	align-items: center;
 }
 
+.aboutH1 {
+	text-align: center;
+}
+
 .aboutp {
 	margin-top: 48px;
 	margin-bottom: 32px;
@@ -677,6 +681,10 @@
 		}
 	}
 
+	.aboutWrp {
+		margin-top: 50px;
+	 }
+
 	.achievementsWrp {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
@@ -728,6 +736,7 @@
 	.aboutH1 {
 		font-size: 40px;
 		width: 312px;
+		text-align: center !important;
 	}
 
 	.aboutp {

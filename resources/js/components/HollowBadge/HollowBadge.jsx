@@ -5,7 +5,7 @@ const HollowBadge = ({ name, color, style }) => {
     const navigate = useNavigate();
     return (
         <div style={{ border: "1px solid " + color, padding: "8px 16px", borderRadius: "50px", width: "fit-content", ...style}}>
-            <p style={{ color: color, fontSize: "16px", fontFamily: "Helvetica Neue"}}>{name}</p>
+            <p style={{ color: color, fontSize: "16px", fontFamily: "Helvetica Neue", width: "fit-content", margin: "0"}}>{name}</p>
         </div>
     );
 };

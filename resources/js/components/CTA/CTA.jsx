@@ -9,13 +9,13 @@ const CTA = ({ data }) => {
     <>
       <div className={styles.ctaWrp}>
         <div className={styles.ctaContent}>
-          {data.badge && <HollowBadge style={{ marginBottom: '32px' }} name={data.badge} color={'#2C48CC'} />}
+          {data.badge && <HollowBadge style={{ marginBottom: '32px' , width: window.innerWidth <= 480 ? 'calc(100%)' : 'fit-content',}} name={data.badge} color={'#2C48CC'} />}
           <h3 className={styles.ctaH3} style={{ color: 'white', fontSize: data.fontSize || '48px !important' }}>{data.title} {data.titleItalic && <span style={{ fontStyle: 'italic', fontWeight: '400' }}>{data.titleItalic}</span>}</h3>
           <p className={styles.ctaP}>{data.content}</p>
           <div className={styles.ctaBTNs}>
             <SolidBtn
               style={{
-                width: window.innerWidth <= 480 ? 'calc(100% - 48px)' : 'fit-content',
+                width: window.innerWidth <= 480 ? 'calc(100%)' : 'fit-content',
                 textAlign: window.innerWidth <= 480 ? 'center' : 'left'
               }}
               name={data.btnText} />

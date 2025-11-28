@@ -82,8 +82,8 @@ const Judgement = () => {
         </div>
         <div className={styles.judgementContent}>
           <h1 style={{ color: '#181818', marginBottom: '8px' }}>{HeaderData.title}</h1>
-          <p style={{ color: '#181818', fontWeight: '700', fontSize: '24px', fontStyle: 'italic', marginBottom: '32px' }}>{HeaderData.subtitle}</p>
-          <p style={{ width: '1038px', color: '#181818', fontSize: '18px', textAlign: 'center', marginBottom: '64px' }}>
+          <p className={styles.judgementContentP} style={{ color: '#181818', fontWeight: '700', fontSize: '24px', fontStyle: 'italic', marginBottom: '32px' }}>{HeaderData.subtitle}</p>
+          <p className={styles.judgementContentP} style={{ width: '1038px', color: '#181818', fontSize: '18px', textAlign: 'center', marginBottom: '64px' }}>
             {HeaderData.description.split('\n\n').map((paragraph, index) => (
               <React.Fragment key={index}>
                 {index > 0 && <><br /><br /></>}
@@ -102,7 +102,7 @@ const Judgement = () => {
                   </div>
                   <div className={styles.cardBack}>
                     <img style={{ height: '32px', marginBottom: '24px' }} src={card.icon} alt="" />
-                    <h5 style={{ width: '332px', color: '#fff', fontSize: '24px', marginBottom: '16px' }}>{card.title}</h5>
+                    <h5 style={{color: '#fff', fontSize: '24px', marginBottom: '16px' }}>{card.title}</h5>
                     <p dangerouslySetInnerHTML={{ __html: card.description }} style={{textAlign: 'left', fontSize: '16px'}}></p>
                   </div>
                 </div>
@@ -117,9 +117,9 @@ const Judgement = () => {
                 <React.Fragment key={item.id}>
                   {index > 0 && <div className={styles.divider} style={{ width: '1px', height: '215px', backgroundColor: '#CED4DA' }} />}
                   <div className={styles.whyItMattersItem}>
-                    <p style={{ width: 'fit-content', color: '#6C757D', fontSize: '32px', padding: '17px 22.5px', backgroundColor: '#E9ECEF', borderRadius: '50px' }}>{item.number}</p>
-                    <p style={{ color: '#181818', fontSize: '24px', textAlign: 'center' }}>{item.title}</p>
-                    <p style={{ color: '#181818', fontSize: '16px', textAlign: 'center' }}>{item.description}</p>
+                    <p className={styles.whyItMattersItemC} style={{ width: '70px', height: '70px', color: '#6C757D', fontSize: '32px', backgroundColor: '#E9ECEF', borderRadius: '50px', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0' }}>{item.number}</p>
+                    <p className={styles.whyItMattersItemp} style={{ color: '#181818', fontSize: '24px', textAlign: 'center' }}>{item.title}</p>
+                    <p className={styles.whyItMattersItemp} style={{ color: '#181818', fontSize: '16px', textAlign: 'center' }}>{item.description}</p>
                   </div>
                 </React.Fragment>
               ))}

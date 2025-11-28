@@ -15,6 +15,15 @@ const ContactUsBTN = () => {
 				cursor: "pointer",
 				fontFamily: 'Helvetica Neue',
 				fontSize: '16px',
+				transition: "background-color 0.3s ease, color 0.3s ease",
+			}}
+			onMouseEnter={(e) => {
+				e.target.style.backgroundColor = "#1C2D80";
+				e.target.style.color = "#fff";
+			}}
+			onMouseLeave={(e) => {
+				e.target.style.backgroundColor = "#fff";
+				e.target.style.color = "#000";
 			}}
 			onClick={() => navigate('/contact')}
 			>
