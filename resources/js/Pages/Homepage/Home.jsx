@@ -3,6 +3,7 @@ import styles from './Home.module.scss';
 import SolidBtn from '../../components/SolidButton/SolidBTN';
 import HollowBtn from '../../components/HollowButton/HollowBTN';
 import HollowBadge from '../../components/HollowBadge/HollowBadge';
+import Spinner from '../../components/Spinner/Spinner';
 
 // API Configuration
 const API_BASE_URL = 'http://localhost:8000/api';
@@ -538,8 +539,8 @@ const Home = () => {
 
   if (loading) {
     return (
-      <div className={styles.homeWrp} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '50vh' }}>
-        <p>Loading homepage data...</p>
+      <div className={styles.homeWrp} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '50vh', flexDirection: 'column', gap: '16px' }}>
+        <Spinner size="large" color="#1C2D80" />
       </div>
     );
   }
